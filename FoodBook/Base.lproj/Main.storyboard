@@ -33,7 +33,7 @@
         <scene sceneID="wYy-WK-CK5">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="YD2-AK-2Cn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aC6-Xg-GiH"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="aC6-Xg-GiH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFw-Nx-7JM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +43,7 @@
         <scene sceneID="uvU-Nl-UOV">
             <objects>
                 <viewControllerPlaceholder storyboardName="Post" id="dEA-W0-UfK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YV7-CJ-fZw"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="YV7-CJ-fZw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy2-pk-piQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +53,7 @@
         <scene sceneID="CVJ-8M-gvk">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="gYT-ab-oOZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eME-fh-qqI"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="eME-fh-qqI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG7-sQ-aCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +63,7 @@
         <scene sceneID="pGw-oJ-oez">
             <objects>
                 <viewControllerPlaceholder storyboardName="Search" id="quW-2g-8h4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4cD-e1-AZw"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="4cD-e1-AZw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmD-LM-vub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
