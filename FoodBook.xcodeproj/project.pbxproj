@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		27FDAA60203F4A8F008AE045 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FDAA5E203F4A8F008AE045 /* Home.storyboard */; };
 		27FDAA62203F4AA5008AE045 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FDAA61203F4AA5008AE045 /* Search.storyboard */; };
+		86E688FD2044D77F006A6580 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E688FB2044D77F006A6580 /* Profile.storyboard */; };
+		86E688FF2044D843006A6580 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E688FE2044D843006A6580 /* Post.storyboard */; };
 		86F56872203F23970018FFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56871203F23970018FFBE /* AppDelegate.swift */; };
 		86F56874203F23970018FFBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56873203F23970018FFBE /* FirstViewController.swift */; };
 		86F56876203F23970018FFBE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56875203F23970018FFBE /* SecondViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		27FDAA5F203F4A8F008AE045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		27FDAA61203F4AA5008AE045 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		86E688FC2044D77F006A6580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		86E688FE2044D843006A6580 /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		86F5686E203F23970018FFBE /* FoodBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F56871203F23970018FFBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86F56873203F23970018FFBE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		86F56870203F23970018FFBE /* FoodBook */ = {
 			isa = PBXGroup;
 			children = (
+				86E688FE2044D843006A6580 /* Post.storyboard */,
+				86E688FB2044D77F006A6580 /* Profile.storyboard */,
 				27FDAA61203F4AA5008AE045 /* Search.storyboard */,
 				27FDAA5E203F4A8F008AE045 /* Home.storyboard */,
 				86F56871203F23970018FFBE /* AppDelegate.swift */,
@@ -132,10 +138,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E688FD2044D77F006A6580 /* Profile.storyboard in Resources */,
 				86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */,
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
 				86F56879203F23970018FFBE /* Main.storyboard in Resources */,
 				27FDAA60203F4A8F008AE045 /* Home.storyboard in Resources */,
+				86E688FF2044D843006A6580 /* Post.storyboard in Resources */,
 				27FDAA62203F4AA5008AE045 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +170,14 @@
 				27FDAA5F203F4A8F008AE045 /* Base */,
 			);
 			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		86E688FB2044D77F006A6580 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86E688FC2044D77F006A6580 /* Base */,
+			);
+			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 		86F56877203F23970018FFBE /* Main.storyboard */ = {
