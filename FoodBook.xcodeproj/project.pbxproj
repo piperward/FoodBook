@@ -11,6 +11,7 @@
 		27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9A2044DDAF0094E3FC /* Post.storyboard */; };
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
 		27E18FA12044DEBB0094E3FC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9F2044DEBB0094E3FC /* Search.storyboard */; };
+		860222402047329F0019425B /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8602223E2047329F0019425B /* Start.storyboard */; };
 		86F56872203F23970018FFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56871203F23970018FFBE /* AppDelegate.swift */; };
 		86F56874203F23970018FFBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56873203F23970018FFBE /* FirstViewController.swift */; };
 		86F56876203F23970018FFBE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56875203F23970018FFBE /* SecondViewController.swift */; };
@@ -24,6 +25,7 @@
 		27E18F9B2044DDAF0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		27E18F9D2044DE520094E3FC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		27E18FA02044DEBB0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		8602223F2047329F0019425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		86F5686E203F23970018FFBE /* FoodBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F56871203F23970018FFBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86F56873203F23970018FFBE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		86F56870203F23970018FFBE /* FoodBook */ = {
 			isa = PBXGroup;
 			children = (
+				8602223E2047329F0019425B /* Start.storyboard */,
 				27E18F9F2044DEBB0094E3FC /* Search.storyboard */,
 				27E18F9D2044DE520094E3FC /* Home.storyboard */,
 				27E18F9A2044DDAF0094E3FC /* Post.storyboard */,
@@ -143,6 +146,7 @@
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
 				27E18F992044DD600094E3FC /* Profile.storyboard in Resources */,
 				27E18FA12044DEBB0094E3FC /* Search.storyboard in Resources */,
+				860222402047329F0019425B /* Start.storyboard in Resources */,
 				86F56879203F23970018FFBE /* Main.storyboard in Resources */,
 				27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */,
 			);
@@ -178,6 +182,14 @@
 				27E18FA02044DEBB0094E3FC /* Base */,
 			);
 			name = Search.storyboard;
+			sourceTree = "<group>";
+		};
+		8602223E2047329F0019425B /* Start.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8602223F2047329F0019425B /* Base */,
+			);
+			name = Start.storyboard;
 			sourceTree = "<group>";
 		};
 		86F56877203F23970018FFBE /* Main.storyboard */ = {
