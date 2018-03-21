@@ -52,6 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // FIXME: Add code for changing post properties
         cell.postImageView.image = postList[row].photo
         cell.postDescriptionLabel.text = postList[row].caption
+        cell.postNameLabel.text = "Jane Doe"
         
         return cell
     }

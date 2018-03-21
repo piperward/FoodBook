@@ -28,7 +28,7 @@ class ProfileUserViewController: UIViewController {
         user = User()
         user.email = "piperward@utexas.edu"
         user.id = "1"
-        user.username = "piperward"
+        user.username = "Jane Doe"
         
         collectionView.reloadData()
     }
