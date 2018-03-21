@@ -9,21 +9,22 @@
 import UIKit
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextView: UITextView!
     
+    private var imageSelected: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
+    
     @IBAction func onPostImageViewTapped(_ sender: UITapGestureRecognizer) {
         //Hide keyboard
         postTextView.resignFirstResponder()
@@ -48,16 +49,20 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // Set photoImageView to display the selected image.
         postImageView.image = selectedImage
+        imageSelected = true
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onUploadButtonPressed(_ sender: Any) {
-        //FIXME
-        if postImageView != nil {
+        if imageSelected {
             var post = Post(caption: postTextView.text!, photo: postImageView.image)
             postList.insert(post, at: 0)
+            
+            //Clean up post scene and move to home scene
+            self.clean()
+            self.navigationController?.tabBarController?.selectedIndex = 0
         }
     }
     
@@ -72,16 +77,23 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
+    //Resets image and caption to default state
+    func clean() {
+        self.postTextView.text = "Caption"
+        self.postImageView.image = UIImage(named: "placeholder")
+        self.imageSelected = false
+    }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+
