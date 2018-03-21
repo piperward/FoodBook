@@ -40,6 +40,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="emailTextFieldEditingChanged:" destination="tlO-Ru-RHn" eventType="editingChanged" id="0dd-Md-QFA"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kde-3H-pVm" userLabel="Password Text Field">
                                         <rect key="frame" x="0.0" y="50" width="335" height="30"/>

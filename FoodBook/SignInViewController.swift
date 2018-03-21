@@ -71,4 +71,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    //MARK: Actions
+    @IBAction func emailTextFieldEditingChanged(_ sender: Any) {
+        if !(passwordTextField.text?.isEmpty)! {
+            passwordTextField.text = ""
+        }
+    }
+    
 }
