@@ -23,15 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FoodBook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-KZ-k7o">
-                                <rect key="frame" x="101" y="147" width="172" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodBook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-KZ-k7o">
+                                <rect key="frame" x="104.5" y="147" width="166.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="tCI-Rt-3lA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dbe-4Q-Dsj">
-                                <rect key="frame" x="20" y="268.5" width="335" height="130"/>
+                                <rect key="frame" x="20" y="269" width="335" height="130"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-My-NIM" userLabel="Email Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -70,10 +72,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lPa-lL-01N" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="8qJ-4u-5kh"/>
+                            <constraint firstItem="eYU-KZ-k7o" firstAttribute="top" secondItem="Rdk-7z-6aW" secondAttribute="top" constant="127" id="Dog-pp-CiR"/>
                             <constraint firstItem="Rdk-7z-6aW" firstAttribute="trailing" secondItem="Dbe-4Q-Dsj" secondAttribute="trailing" constant="20" id="TcD-bu-dyQ"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="ir0-VJ-HNq"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="leading" secondItem="Rdk-7z-6aW" secondAttribute="leading" constant="20" id="kkl-tY-AYP"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerY" secondItem="cXo-cd-fAj" secondAttribute="centerY" id="mFC-v8-Oez"/>
+                            <constraint firstItem="eYU-KZ-k7o" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="por-eM-hju"/>
                             <constraint firstItem="Rdk-7z-6aW" firstAttribute="bottom" secondItem="lPa-lL-01N" secondAttribute="bottom" constant="9" id="viZ-ef-1Xr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rdk-7z-6aW"/>
@@ -99,11 +103,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-jA-eRV" userLabel="Profile Picture Image View">
-                                <rect key="frame" x="142.5" y="61" width="90" height="90"/>
+                                <rect key="frame" x="137.5" y="61" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="ZiO-nL-qzO"/>
-                                    <constraint firstAttribute="height" constant="90" id="beF-sd-Cjt"/>
+                                    <constraint firstAttribute="width" constant="100" id="ZiO-nL-qzO"/>
+                                    <constraint firstAttribute="height" constant="100" id="beF-sd-Cjt"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gW3-lD-CLg">
                                 <rect key="frame" x="20" y="268" width="335" height="180"/>
@@ -150,7 +160,7 @@
                             <constraint firstItem="EOf-i6-ORk" firstAttribute="trailing" secondItem="gW3-lD-CLg" secondAttribute="trailing" constant="20" id="Esb-NJ-6c0"/>
                             <constraint firstItem="Qrx-jA-eRV" firstAttribute="top" secondItem="EOf-i6-ORk" secondAttribute="top" constant="41" id="Idg-rB-oLg"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="centerX" secondItem="b1x-ki-Ulf" secondAttribute="centerX" id="MBq-1I-ZGb"/>
-                            <constraint firstItem="gW3-lD-CLg" firstAttribute="centerX" secondItem="Qrx-jA-eRV" secondAttribute="centerX" priority="998" id="acl-A1-o8C"/>
+                            <constraint firstItem="Qrx-jA-eRV" firstAttribute="centerX" secondItem="Tm5-LB-pgN" secondAttribute="centerX" id="buF-NN-wbv"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="top" secondItem="Tm5-LB-pgN" secondAttribute="top" constant="268" id="jZK-Dc-k1r"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="leading" secondItem="EOf-i6-ORk" secondAttribute="leading" constant="20" id="pUo-Pg-Ymg"/>
                             <constraint firstItem="EOf-i6-ORk" firstAttribute="bottom" secondItem="b1x-ki-Ulf" secondAttribute="bottom" constant="9" id="ve1-PR-32l"/>

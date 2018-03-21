@@ -50,9 +50,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez7-9V-1Ao">
-                                                    <rect key="frame" x="16" y="427" width="30" height="30"/>
-                                                    <state key="normal" title="Like"/>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez7-9V-1Ao">
+                                                    <rect key="frame" x="16" y="434" width="23" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="G7M-52-TwJ"/>
+                                                        <constraint firstAttribute="width" constant="23" id="a1m-kO-uFQ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Like" image="like"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -60,20 +64,21 @@
                                                 <constraint firstItem="1bz-mT-QLD" firstAttribute="top" secondItem="KSj-zh-gC5" secondAttribute="topMargin" id="621-kW-S7b"/>
                                                 <constraint firstAttribute="bottom" secondItem="F55-6W-nLD" secondAttribute="bottom" constant="100" id="6jr-ou-ZoK"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="aIl-RQ-G3r" secondAttribute="bottom" constant="28.5" id="9n1-fN-Lku"/>
-                                                <constraint firstItem="Ez7-9V-1Ao" firstAttribute="top" secondItem="F55-6W-nLD" secondAttribute="bottom" constant="2.5" id="AC4-Ro-Fa3"/>
                                                 <constraint firstItem="F55-6W-nLD" firstAttribute="top" secondItem="1bz-mT-QLD" secondAttribute="bottom" constant="7" id="D5Q-Ss-NYh"/>
                                                 <constraint firstItem="F55-6W-nLD" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leading" id="LzY-WH-Sah"/>
+                                                <constraint firstItem="aIl-RQ-G3r" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="NyD-Fx-ARP"/>
+                                                <constraint firstItem="aIl-RQ-G3r" firstAttribute="top" secondItem="Ez7-9V-1Ao" secondAttribute="bottom" constant="8" id="SvB-rh-5uL"/>
                                                 <constraint firstItem="F55-6W-nLD" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leading" id="TrV-ZP-WiI"/>
                                                 <constraint firstAttribute="trailing" secondItem="F55-6W-nLD" secondAttribute="trailing" id="WwW-w7-baM"/>
                                                 <constraint firstItem="aIl-RQ-G3r" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="ZM5-JW-ZIE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="aIl-RQ-G3r" secondAttribute="trailing" constant="1" id="fc9-Zo-vQv"/>
+                                                <constraint firstItem="Ez7-9V-1Ao" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="mtT-Xz-xMN"/>
                                                 <constraint firstItem="F55-6W-nLD" firstAttribute="top" secondItem="1bz-mT-QLD" secondAttribute="bottom" constant="7" id="nkc-jL-E09"/>
+                                                <constraint firstItem="Ez7-9V-1Ao" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="qoj-BJ-ZYm"/>
                                                 <constraint firstItem="1bz-mT-QLD" firstAttribute="trailing" secondItem="KSj-zh-gC5" secondAttribute="trailingMargin" id="r0R-As-a7t"/>
                                                 <constraint firstItem="F55-6W-nLD" firstAttribute="top" secondItem="KSj-zh-gC5" secondAttribute="top" constant="50" id="rpt-qD-gX1"/>
                                                 <constraint firstItem="1bz-mT-QLD" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="sLc-YP-qqu"/>
-                                                <constraint firstItem="aIl-RQ-G3r" firstAttribute="top" secondItem="Ez7-9V-1Ao" secondAttribute="bottom" constant="8" id="sQk-38-pZw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Ez7-9V-1Ao" secondAttribute="trailing" constant="314" id="snB-hB-Xkk"/>
-                                                <constraint firstItem="Ez7-9V-1Ao" firstAttribute="leading" secondItem="KSj-zh-gC5" secondAttribute="leadingMargin" constant="1" id="xFx-cj-Ccb"/>
+                                                <constraint firstItem="aIl-RQ-G3r" firstAttribute="top" secondItem="Ez7-9V-1Ao" secondAttribute="bottom" constant="8" id="v72-0e-cWr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -138,5 +143,6 @@
     </scenes>
     <resources>
         <image name="home" width="30" height="30"/>
+        <image name="like" width="46" height="41"/>
     </resources>
 </document>

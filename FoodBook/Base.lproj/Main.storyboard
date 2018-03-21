@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="-183" y="-132"/>
         </scene>
-        <!--Profile-->
+        <!--ProfileUser-->
         <scene sceneID="wYy-WK-CK5">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="YD2-AK-2Cn" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ProfileUser" id="YD2-AK-2Cn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="aC6-Xg-GiH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFw-Nx-7JM" userLabel="First Responder" sceneMemberID="firstResponder"/>
