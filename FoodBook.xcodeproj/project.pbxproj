@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B4252A2061E69D007DB8F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B425252061E69C007DB8F9 /* HomeViewController.swift */; };
+		27B4252B2061E69D007DB8F9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B425262061E69C007DB8F9 /* ProfileViewController.swift */; };
+		27B4252C2061E69D007DB8F9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B425272061E69D007DB8F9 /* PostViewController.swift */; };
+		27B4252D2061E69D007DB8F9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B425282061E69D007DB8F9 /* PostTableViewCell.swift */; };
+		27B4252E2061E69D007DB8F9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B425292061E69D007DB8F9 /* Post.swift */; };
 		27E18F992044DD600094E3FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F982044DD600094E3FC /* Profile.storyboard */; };
 		27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9A2044DDAF0094E3FC /* Post.storyboard */; };
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27B425252061E69C007DB8F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../Desktop/FoodBook/FoodBook/HomeViewController.swift; sourceTree = "<group>"; };
+		27B425262061E69C007DB8F9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../../../Desktop/FoodBook/FoodBook/ProfileViewController.swift; sourceTree = "<group>"; };
+		27B425272061E69D007DB8F9 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ../../../Desktop/FoodBook/FoodBook/PostViewController.swift; sourceTree = "<group>"; };
+		27B425282061E69D007DB8F9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../../../Desktop/FoodBook/FoodBook/PostTableViewCell.swift; sourceTree = "<group>"; };
+		27B425292061E69D007DB8F9 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../Desktop/FoodBook/FoodBook/Post.swift; sourceTree = "<group>"; };
 		27E18F982044DD600094E3FC /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		27E18F9B2044DDAF0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		27E18F9D2044DE520094E3FC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -80,6 +90,11 @@
 				86F56871203F23970018FFBE /* AppDelegate.swift */,
 				86F56873203F23970018FFBE /* FirstViewController.swift */,
 				86F56875203F23970018FFBE /* SecondViewController.swift */,
+				27B425252061E69C007DB8F9 /* HomeViewController.swift */,
+				27B425292061E69D007DB8F9 /* Post.swift */,
+				27B425282061E69D007DB8F9 /* PostTableViewCell.swift */,
+				27B425272061E69D007DB8F9 /* PostViewController.swift */,
+				27B425262061E69C007DB8F9 /* ProfileViewController.swift */,
 				86F56877203F23970018FFBE /* Main.storyboard */,
 				86F5687A203F23970018FFBE /* Assets.xcassets */,
 				86F5687C203F23970018FFBE /* LaunchScreen.storyboard */,
@@ -165,11 +180,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B4252C2061E69D007DB8F9 /* PostViewController.swift in Sources */,
 				86BDF399206085FE00B74C21 /* SignInViewController.swift in Sources */,
 				86F56876203F23970018FFBE /* SecondViewController.swift in Sources */,
 				86F56872203F23970018FFBE /* AppDelegate.swift in Sources */,
 				86F56874203F23970018FFBE /* FirstViewController.swift in Sources */,
+				27B4252B2061E69D007DB8F9 /* ProfileViewController.swift in Sources */,
 				861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */,
+				27B4252A2061E69D007DB8F9 /* HomeViewController.swift in Sources */,
+				27B4252D2061E69D007DB8F9 /* PostTableViewCell.swift in Sources */,
+				27B4252E2061E69D007DB8F9 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -253,11 +253,11 @@
             </objects>
             <point key="canvasLocation" x="2837.5999999999999" y="523.98800599700155"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="VdJ-Zv-rGP">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JyA-uU-2Hc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="happy" selectedImage="happy" id="tnj-AH-Aao"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="happy" selectedImage="happy" id="tnj-AH-Aao"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V2u-RG-PjE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -272,11 +272,11 @@
             </objects>
             <point key="canvasLocation" x="848" y="524.43778110944527"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="lnz-jk-jB6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QEw-HK-PQa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ypm-w5-Hpx"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="happy" id="Ypm-w5-Hpx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="my9-3n-PtM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
