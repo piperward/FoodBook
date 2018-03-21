@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +13,7 @@
         <!--Post View Controller-->
         <scene sceneID="GOT-PZ-bfQ">
             <objects>
-                <viewController id="Qfq-ty-SoR" userLabel="Post View Controller" customClass="PostViewController" customModule="FoodBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qfq-ty-SoR" userLabel="Post View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Y4-rr-jcY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,25 +26,17 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="onUploadButtonPressed:" destination="Qfq-ty-SoR" eventType="touchUpInside" id="7rf-sA-JtK"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmg-Ws-nro">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-dS-Wfw" userLabel="Photo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-dS-Wfw" userLabel="Photo">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="aPI-ct-6Wm"/>
-                                            <constraint firstAttribute="width" secondItem="oOf-dS-Wfw" secondAttribute="height" multiplier="1:1" id="to1-eU-Y2k"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Qh9-Sk-JN2" appends="YES" id="7gM-CS-cq6"/>
-                                        </connections>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nvC-gP-PXz">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nvC-gP-PXz">
                                         <rect key="frame" x="100" y="0.0" width="275" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,17 +61,8 @@
                         <viewLayoutGuide key="safeArea" id="YTb-LB-hZ1"/>
                     </view>
                     <navigationItem key="navigationItem" id="St5-eC-4eH"/>
-                    <connections>
-                        <outlet property="postImageView" destination="oOf-dS-Wfw" id="dcK-zw-ctf"/>
-                        <outlet property="postTextView" destination="nvC-gP-PXz" id="HEu-93-5Si"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5DH-0p-zx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Qh9-Sk-JN2">
-                    <connections>
-                        <action selector="onPostImageViewTapped:" destination="Qfq-ty-SoR" id="bje-iH-63R"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="736.79999999999995" y="714.69265367316348"/>
         </scene>
@@ -88,7 +70,7 @@
         <scene sceneID="O1U-44-2Wd">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="see-PO-MUO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Kio-rN-Gjk"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="plus" selectedImage="plus" id="Kio-rN-Gjk"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wBW-K4-IC5">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -107,7 +89,7 @@
         <scene sceneID="f2G-GK-WRC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBv-t7-H2w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HIU-8N-pE0"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="plus" selectedImage="plus" id="HIU-8N-pE0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dQb-QD-jyN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -124,6 +106,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholderImg" width="225" height="225"/>
+        <image name="plus" width="30" height="30"/>
     </resources>
 </document>

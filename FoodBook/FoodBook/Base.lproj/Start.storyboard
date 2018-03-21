@@ -18,7 +18,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="JWu-dq-aHn">
             <objects>
-                <viewController id="tlO-Ru-RHn" userLabel="Sign In View Controller" customClass="SignInViewController" sceneMemberID="viewController">
+                <viewController id="tlO-Ru-RHn" userLabel="Sign In View Controller" customClass="SignInViewController" customModule="FoodBook" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cXo-cd-fAj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,9 +57,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPa-lL-01N">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPa-lL-01N">
                                 <rect key="frame" x="107" y="628" width="161" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Don't have an account?">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
@@ -70,13 +69,22 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lPa-lL-01N" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="8qJ-4u-5kh"/>
                             <constraint firstItem="Rdk-7z-6aW" firstAttribute="trailing" secondItem="Dbe-4Q-Dsj" secondAttribute="trailing" constant="20" id="TcD-bu-dyQ"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="ir0-VJ-HNq"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="leading" secondItem="Rdk-7z-6aW" secondAttribute="leading" constant="20" id="kkl-tY-AYP"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerY" secondItem="cXo-cd-fAj" secondAttribute="centerY" id="mFC-v8-Oez"/>
+                            <constraint firstItem="Rdk-7z-6aW" firstAttribute="bottom" secondItem="lPa-lL-01N" secondAttribute="bottom" constant="9" id="viZ-ef-1Xr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rdk-7z-6aW"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="DeE-My-NIM" id="0pH-kK-NBi"/>
+                        <outlet property="passwordTextField" destination="kde-3H-pVm" id="QEd-Gw-6qa"/>
+                        <outlet property="signInButton" destination="zoM-rq-FCo" id="f09-yC-QsI"/>
+                        <outlet property="signUpButton" destination="lPa-lL-01N" id="K5f-gX-01h"/>
+                        <outlet property="titleLabel" destination="eYU-KZ-k7o" id="wbh-AW-kyh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8X-Up-jJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,15 +93,16 @@
         <!--Sign Up View Controller-->
         <scene sceneID="RuK-29-vYQ">
             <objects>
-                <viewController id="a8G-gf-AjK" userLabel="Sign Up View Controller" sceneMemberID="viewController">
+                <viewController id="a8G-gf-AjK" userLabel="Sign Up View Controller" customClass="SignUpViewController" customModule="FoodBook" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tm5-LB-pgN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-jA-eRV">
-                                <rect key="frame" x="147" y="61" width="80" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-jA-eRV" userLabel="Profile Picture Image View">
+                                <rect key="frame" x="142.5" y="61" width="90" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="beF-sd-Cjt"/>
+                                    <constraint firstAttribute="width" constant="90" id="ZiO-nL-qzO"/>
+                                    <constraint firstAttribute="height" constant="90" id="beF-sd-Cjt"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gW3-lD-CLg">
@@ -131,21 +140,31 @@
                                 <state key="normal" title="Already have an account? Sign In">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="signIn:" destination="a8G-gf-AjK" eventType="touchUpInside" id="jmV-gs-Nu1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qrx-jA-eRV" firstAttribute="leading" secondItem="EOf-i6-ORk" secondAttribute="leading" constant="147" id="CSF-X2-Ssr"/>
                             <constraint firstItem="EOf-i6-ORk" firstAttribute="trailing" secondItem="gW3-lD-CLg" secondAttribute="trailing" constant="20" id="Esb-NJ-6c0"/>
                             <constraint firstItem="Qrx-jA-eRV" firstAttribute="top" secondItem="EOf-i6-ORk" secondAttribute="top" constant="41" id="Idg-rB-oLg"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="centerX" secondItem="b1x-ki-Ulf" secondAttribute="centerX" id="MBq-1I-ZGb"/>
-                            <constraint firstItem="gW3-lD-CLg" firstAttribute="centerX" secondItem="Qrx-jA-eRV" secondAttribute="centerX" id="acl-A1-o8C"/>
+                            <constraint firstItem="gW3-lD-CLg" firstAttribute="centerX" secondItem="Qrx-jA-eRV" secondAttribute="centerX" priority="998" id="acl-A1-o8C"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="top" secondItem="Tm5-LB-pgN" secondAttribute="top" constant="268" id="jZK-Dc-k1r"/>
                             <constraint firstItem="gW3-lD-CLg" firstAttribute="leading" secondItem="EOf-i6-ORk" secondAttribute="leading" constant="20" id="pUo-Pg-Ymg"/>
                             <constraint firstItem="EOf-i6-ORk" firstAttribute="bottom" secondItem="b1x-ki-Ulf" secondAttribute="bottom" constant="9" id="ve1-PR-32l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EOf-i6-ORk"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="MMG-bZ-Acu" id="ACW-7i-9J9"/>
+                        <outlet property="passwordTextField" destination="0rf-gl-9c1" id="edk-eu-CKV"/>
+                        <outlet property="profilePictureImageView" destination="Qrx-jA-eRV" id="zX4-Ee-611"/>
+                        <outlet property="signInButton" destination="b1x-ki-Ulf" id="5Pp-JP-eva"/>
+                        <outlet property="signUpButton" destination="MAJ-kU-Eyh" id="jTN-Dq-o6x"/>
+                        <outlet property="usernameTextField" destination="CiR-lj-3ux" id="dFb-ac-A4S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0W-I6-WqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
