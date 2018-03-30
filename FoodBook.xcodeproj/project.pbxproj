@@ -15,6 +15,7 @@
 		860222402047329F0019425B /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8602223E2047329F0019425B /* Start.storyboard */; };
 		861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */; };
 		867EAE8E2062F31900AF7F91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867EAE8D2062F31900AF7F91 /* User.swift */; };
+		8686F1D5206EEB950046BC82 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */; };
 		868FA5AF2062B81F00BE3484 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5AE2062B81F00BE3484 /* Post.swift */; };
 		868FA5B32062B84400BE3484 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5B02062B84400BE3484 /* PostTableViewCell.swift */; };
 		868FA5B42062B84400BE3484 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5B12062B84400BE3484 /* PostViewController.swift */; };
@@ -43,6 +44,7 @@
 		8602223F2047329F0019425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		867EAE8D2062F31900AF7F91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		868FA5AE2062B81F00BE3484 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		868FA5B02062B84400BE3484 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		868FA5B12062B84400BE3484 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				86BDF398206085FE00B74C21 /* SignInViewController.swift */,
 				8602223E2047329F0019425B /* Start.storyboard */,
+				8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */,
 				861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */,
 				27E18F9F2044DEBB0094E3FC /* Search.storyboard */,
 				27E18F9D2044DE520094E3FC /* Home.storyboard */,
@@ -289,6 +292,7 @@
 				86F56874203F23970018FFBE /* FirstViewController.swift in Sources */,
 				861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */,
 				868FA5B32062B84400BE3484 /* PostTableViewCell.swift in Sources */,
+				8686F1D5206EEB950046BC82 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
