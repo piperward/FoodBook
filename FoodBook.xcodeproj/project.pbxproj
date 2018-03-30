@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2757482F206EDD9400B60D3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2757482E206EDD9400B60D3A /* GoogleService-Info.plist */; };
 		27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F982044DD600094E3FC /* ProfileUser.storyboard */; };
 		27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9A2044DDAF0094E3FC /* Post.storyboard */; };
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
@@ -28,13 +29,17 @@
 		86F56879203F23970018FFBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F56877203F23970018FFBE /* Main.storyboard */; };
 		86F5687B203F23970018FFBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5687A203F23970018FFBE /* Assets.xcassets */; };
 		86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F5687C203F23970018FFBE /* LaunchScreen.storyboard */; };
+		969CC3D623B6251D4D1CF807 /* Pods_FoodBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BE3D0FD003220376CC5473 /* Pods_FoodBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook.release.xcconfig"; sourceTree = "<group>"; };
+		2757482E206EDD9400B60D3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27E18F982044DD600094E3FC /* ProfileUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
 		27E18F9B2044DDAF0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		27E18F9D2044DE520094E3FC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		27E18FA02044DEBB0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		44BE3D0FD003220376CC5473 /* Pods_FoodBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8602223F2047329F0019425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		867EAE8D2062F31900AF7F91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		86F5687A203F23970018FFBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F5687D203F23970018FFBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86F5687F203F23970018FFBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6293FA1DFDE50566C9C3EB /* Pods-FoodBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +67,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969CC3D623B6251D4D1CF807 /* Pods_FoodBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		663EB111426387584DBC7741 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44BE3D0FD003220376CC5473 /* Pods_FoodBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		686E13BDD2126D0816CC2A48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE6293FA1DFDE50566C9C3EB /* Pods-FoodBook.debug.xcconfig */,
+				09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		86F56865203F23970018FFBE = {
 			isa = PBXGroup;
 			children = (
 				86F56870203F23970018FFBE /* FoodBook */,
 				86F5686F203F23970018FFBE /* Products */,
+				686E13BDD2126D0816CC2A48 /* Pods */,
+				663EB111426387584DBC7741 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +134,7 @@
 				86F5687A203F23970018FFBE /* Assets.xcassets */,
 				86F5687C203F23970018FFBE /* LaunchScreen.storyboard */,
 				86F5687F203F23970018FFBE /* Info.plist */,
+				2757482E206EDD9400B60D3A /* GoogleService-Info.plist */,
 			);
 			path = FoodBook;
 			sourceTree = "<group>";
@@ -119,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86F56882203F23970018FFBE /* Build configuration list for PBXNativeTarget "FoodBook" */;
 			buildPhases = (
+				ACD4C7652B2F8DA3B68653AE /* [CP] Check Pods Manifest.lock */,
 				86F5686A203F23970018FFBE /* Sources */,
 				86F5686B203F23970018FFBE /* Frameworks */,
 				86F5686C203F23970018FFBE /* Resources */,
+				0E2EF83642CFF1CD875E4BAA /* [CP] Embed Pods Frameworks */,
+				D75B12EF00DE54AB1B724DC7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,6 +203,7 @@
 			files = (
 				27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */,
 				86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */,
+				2757482F206EDD9400B60D3A /* GoogleService-Info.plist in Resources */,
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
 				27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */,
 				27E18FA12044DEBB0094E3FC /* Search.storyboard in Resources */,
@@ -183,6 +214,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E2EF83642CFF1CD875E4BAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD4C7652B2F8DA3B68653AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodBook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D75B12EF00DE54AB1B724DC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86F5686A203F23970018FFBE /* Sources */ = {
@@ -360,6 +447,7 @@
 		};
 		86F56883203F23970018FFBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE6293FA1DFDE50566C9C3EB /* Pods-FoodBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -375,6 +463,7 @@
 		};
 		86F56884203F23970018FFBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
