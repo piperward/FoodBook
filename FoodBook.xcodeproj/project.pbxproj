@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2757482F206EDD9400B60D3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2757482E206EDD9400B60D3A /* GoogleService-Info.plist */; };
+		27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */; };
 		27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F982044DD600094E3FC /* ProfileUser.storyboard */; };
 		27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9A2044DDAF0094E3FC /* Post.storyboard */; };
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
@@ -34,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook.release.xcconfig"; sourceTree = "<group>"; };
-		2757482E206EDD9400B60D3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27E18F982044DD600094E3FC /* ProfileUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
 		27E18F9B2044DDAF0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		27E18F9D2044DE520094E3FC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				86F5687A203F23970018FFBE /* Assets.xcassets */,
 				86F5687C203F23970018FFBE /* LaunchScreen.storyboard */,
 				86F5687F203F23970018FFBE /* Info.plist */,
-				2757482E206EDD9400B60D3A /* GoogleService-Info.plist */,
+				27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */,
 			);
 			path = FoodBook;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			files = (
 				27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */,
 				86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */,
-				2757482F206EDD9400B60D3A /* GoogleService-Info.plist in Resources */,
+				27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */,
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
 				27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */,
 				27E18FA12044DEBB0094E3FC /* Search.storyboard in Resources */,
