@@ -156,6 +156,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUp:" destination="a8G-gf-AjK" eventType="touchUpInside" id="ra6-Fm-Z7Q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -165,7 +168,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInAction:" destination="a8G-gf-AjK" eventType="touchUpInside" id="jmV-gs-Nu1"/>
+                                    <action selector="signIn:" destination="a8G-gf-AjK" eventType="touchUpInside" id="RPS-JH-FRg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,7 +188,6 @@
                         <outlet property="emailTextField" destination="MMG-bZ-Acu" id="ACW-7i-9J9"/>
                         <outlet property="passwordTextField" destination="0rf-gl-9c1" id="edk-eu-CKV"/>
                         <outlet property="profilePictureImageView" destination="Qrx-jA-eRV" id="zX4-Ee-611"/>
-                        <outlet property="signInButton" destination="b1x-ki-Ulf" id="5Pp-JP-eva"/>
                         <outlet property="signUpButton" destination="MAJ-kU-Eyh" id="jTN-Dq-o6x"/>
                         <outlet property="usernameTextField" destination="CiR-lj-3ux" id="dFb-ac-A4S"/>
                     </connections>

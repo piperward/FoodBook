@@ -7,4 +7,6 @@ target 'FoodBook' do
 
   # Pods for FoodBook
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end
