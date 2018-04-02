@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
-class SignInViewController: UIViewController, UITextFieldDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
     //MARK: Properties
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,12 +30,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         //signInButton.isUserInteractionEnabled = false
         
+        GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().signIn()
+        
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
                 self.present(vc!, animated: true, completion: nil)
             }
         }
+        
         
     }
     
