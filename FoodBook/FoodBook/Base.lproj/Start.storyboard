@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tlO-Ru-RHn">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,13 +18,13 @@
         <!--Sign In View Controller-->
         <scene sceneID="JWu-dq-aHn">
             <objects>
-                <viewController id="tlO-Ru-RHn" userLabel="Sign In View Controller" customClass="SignInViewController" customModule="FoodBook" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignIn" id="tlO-Ru-RHn" userLabel="Sign In View Controller" customClass="SignInViewController" customModule="FoodBook" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cXo-cd-fAj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodBook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-KZ-k7o">
-                                <rect key="frame" x="104.5" y="147" width="166.5" height="21"/>
+                                <rect key="frame" x="124.00000000000001" y="147" width="166.33333333333337" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tCI-Rt-3lA"/>
                                 </constraints>
@@ -33,37 +33,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dbe-4Q-Dsj">
-                                <rect key="frame" x="40" y="269" width="295" height="130"/>
+                                <rect key="frame" x="40" y="303" width="334" height="130"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-My-NIM" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="emailTextFieldEditingChanged:" destination="tlO-Ru-RHn" eventType="editingChanged" id="0dd-Md-QFA"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kde-3H-pVm" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="50" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoM-rq-FCo" userLabel="Sign In Button">
-                                        <rect key="frame" x="0.0" y="100" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="334" height="30"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="EoH-FD-XNf" kind="presentation" id="5zD-BF-riX"/>
+                                            <action selector="signIn:" destination="tlO-Ru-RHn" eventType="touchUpInside" id="9mC-0d-BEq"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M38-oY-B0R" userLabel="Reset Password Button">
-                                <rect key="frame" x="133" y="622" width="109" height="30"/>
+                                <rect key="frame" x="152.66666666666666" y="691" width="108.99999999999997" height="30"/>
                                 <state key="normal" title="Reset Password">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -72,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPa-lL-01N">
-                                <rect key="frame" x="107" y="587" width="161" height="30"/>
+                                <rect key="frame" x="126.66666666666669" y="656" width="161" height="30"/>
                                 <state key="normal" title="Don't have an account?">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
@@ -80,6 +77,13 @@
                                     <segue destination="a8G-gf-AjK" kind="presentation" id="aiJ-N0-Wu3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid Credentials" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yon-tS-FYe">
+                                <rect key="frame" x="123" y="250" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -98,26 +102,27 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="DeE-My-NIM" id="0pH-kK-NBi"/>
+                        <outlet property="invalidLabel" destination="Yon-tS-FYe" id="SJ9-4Q-dmA"/>
                         <outlet property="passwordTextField" destination="kde-3H-pVm" id="QEd-Gw-6qa"/>
-                        <outlet property="signInButton" destination="zoM-rq-FCo" id="f09-yC-QsI"/>
+                        <outlet property="signInButton" destination="zoM-rq-FCo" id="DFX-Kh-XGI"/>
                         <outlet property="signUpButton" destination="lPa-lL-01N" id="K5f-gX-01h"/>
                         <outlet property="titleLabel" destination="eYU-KZ-k7o" id="wbh-AW-kyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8X-Up-jJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1457" y="-133"/>
+            <point key="canvasLocation" x="-1578" y="-194"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="RuK-29-vYQ">
             <objects>
                 <viewController id="a8G-gf-AjK" userLabel="Sign Up View Controller" customClass="SignUpViewController" customModule="FoodBook" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tm5-LB-pgN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-jA-eRV" userLabel="Profile Picture Image View">
-                                <rect key="frame" x="137.5" y="61" width="100" height="100"/>
+                                <rect key="frame" x="157" y="61" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ZiO-nL-qzO"/>
                                     <constraint firstAttribute="height" constant="100" id="beF-sd-Cjt"/>
@@ -130,28 +135,28 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gW3-lD-CLg">
-                                <rect key="frame" x="40" y="268" width="295" height="180"/>
+                                <rect key="frame" x="40" y="268" width="334" height="180"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CiR-lj-3ux" userLabel="Username Text Field">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MMG-bZ-Acu" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="50" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-gl-9c1" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="100" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAJ-kU-Eyh" userLabel="Sign Up Button">
-                                        <rect key="frame" x="0.0" y="150" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="334" height="30"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -163,7 +168,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1x-ki-Ulf">
-                                <rect key="frame" x="74" y="622" width="227" height="30"/>
+                                <rect key="frame" x="93.666666666666686" y="691" width="227" height="30"/>
                                 <state key="normal" title="Already have an account? Sign In">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
@@ -199,7 +204,7 @@
         <!--UITabBarController-49e-Tb-3d3-->
         <scene sceneID="6cH-vJ-22c">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UITabBarController-49e-Tb-3d3" id="EoH-FD-XNf" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="TabBarController" storyboardName="Main" referencedIdentifier="UITabBarController-49e-Tb-3d3" id="EoH-FD-XNf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4C-AJ-n7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-183" y="-132"/>
@@ -209,23 +214,20 @@
             <objects>
                 <viewController id="G4W-h8-zNZ" userLabel="Reset View Controller" customClass="ResetPasswordViewController" customModule="FoodBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A9s-Bd-kDT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KZl-NG-izd">
-                                <rect key="frame" x="40" y="288" width="295" height="80"/>
+                                <rect key="frame" x="40" y="288" width="334" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="py7-BQ-7hV" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="emailTextFieldEditingChanged:" destination="tlO-Ru-RHn" eventType="editingChanged" id="75a-Ha-BkM"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwD-7g-onc" userLabel="Reset Button">
-                                        <rect key="frame" x="0.0" y="50" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="334" height="30"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -239,7 +241,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ly5-Eo-UY7">
-                                <rect key="frame" x="164" y="622" width="47" height="30"/>
+                                <rect key="frame" x="164" y="691" width="86" height="30"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */; };
+		278538A62071A59400B1AC71 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278538A52071A59400B1AC71 /* SettingsViewController.swift */; };
 		27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F982044DD600094E3FC /* ProfileUser.storyboard */; };
 		27E18F9C2044DDAF0094E3FC /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9A2044DDAF0094E3FC /* Post.storyboard */; };
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook.release.xcconfig"; sourceTree = "<group>"; };
 		27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		278538A52071A59400B1AC71 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		27E18F982044DD600094E3FC /* ProfileUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
 		27E18F9B2044DDAF0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		27E18F9D2044DE520094E3FC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				27E18F9D2044DE520094E3FC /* Home.storyboard */,
 				27E18F9A2044DDAF0094E3FC /* Post.storyboard */,
 				27E18F982044DD600094E3FC /* ProfileUser.storyboard */,
+				278538A52071A59400B1AC71 /* SettingsViewController.swift */,
 				868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */,
 				867EAE8D2062F31900AF7F91 /* User.swift */,
 				868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */,
@@ -226,6 +229,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -233,6 +237,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -267,9 +272,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -291,6 +299,7 @@
 				86F56876203F23970018FFBE /* SecondViewController.swift in Sources */,
 				868FA5BB2062C15600BE3484 /* ProfileUserViewController.swift in Sources */,
 				868FA5B52062B84400BE3484 /* HomeViewController.swift in Sources */,
+				278538A62071A59400B1AC71 /* SettingsViewController.swift in Sources */,
 				86F56872203F23970018FFBE /* AppDelegate.swift in Sources */,
 				868FA5C12062C20400BE3484 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				86F56874203F23970018FFBE /* FirstViewController.swift in Sources */,

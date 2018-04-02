@@ -15,7 +15,7 @@
         <!--Home View Controller-->
         <scene sceneID="JCj-Ah-0Gi">
             <objects>
-                <viewController id="TEg-hk-ohO" customClass="HomeViewController" customModule="FoodBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="TEg-hk-ohO" customClass="HomeViewController" customModule="FoodBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JUa-Ke-Tke">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
