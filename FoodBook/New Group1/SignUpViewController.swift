@@ -23,7 +23,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        //Hides text as it is typed
+        passwordTextField.isSecureTextEntry = true
     }
     
     override func didReceiveMemoryWarning() {
