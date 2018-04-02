@@ -12,9 +12,15 @@ public class Post {
     
     var caption: String
     var photo: UIImage?
+    var photoUrl: String?
+    //var author: String
     
     init(caption: String, photo: UIImage?) {
         self.caption = caption
         self.photo = photo
+    }
+    
+    func toAnyObject() -> Any {
+        return ["caption": caption]
     }
 }

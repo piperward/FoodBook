@@ -39,10 +39,13 @@ class SignUpViewController: UIViewController {
         let email = emailTextField.text
         let password = passwordTextField.text
         
-        if username != nil && email != nil && password != nil {
+        if username! != "" && email! != "" && password! != "" {
             Auth.auth().createUser(withEmail: email!, password: password!) { user, error in
                 if error == nil {
                     Auth.auth().signIn(withEmail: email!, password: password!)
+                    
+                    let uid = user?.uid
+                    self.setUserInfomation(username: username!, email: email!, uid: uid!)
                 }
             }
         }
@@ -50,6 +53,13 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setUserInfomation(username: String, email: String, uid: String) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users")
+        let newUserReference = usersReference.child(uid)
+        newUserReference.setValue(["username": username, "username_lowercase": username.lowercased(), "email": email])
     }
 }
 
