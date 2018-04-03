@@ -12,20 +12,13 @@ import Firebase
 public class Post {
     
     var caption: String
-    var photo: UIImage?
-    var photoUrl: String?
-    let ref: DatabaseReference?
-    
-    init(caption: String, photo: UIImage?) {
-        self.caption = caption
-        self.photo = photo
-        self.ref = nil
-    }
+    var photoUrl: String
+    let ref: DatabaseReference
     
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         caption = snapshotValue["caption"] as! String
-        photoUrl = snapshotValue["photoUrl"] as? String
+        photoUrl = snapshotValue["photoUrl"] as! String
         ref = snapshot.ref
     }
     

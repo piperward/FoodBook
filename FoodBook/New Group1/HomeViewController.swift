@@ -57,18 +57,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // FIXME: Number of posts
         return postList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: postCellIdentifier, for: indexPath as IndexPath) as! PostTableViewCell
+        let currentPost = postList[indexPath.row]
         
-        let row = indexPath.row
-        // FIXME: Add code for changing post properties
-        cell.postImageView.image = postList[row].photo
-        cell.postDescriptionLabel.text = postList[row].caption
+        //Use photo URL to set image view
+        let url = URL(string: currentPost.photoUrl)
+        if let data = try? Data(contentsOf: url!) {
+            cell.postImageView.image = UIImage(data: data)!
+        }
+        
+        //Set caption and username
+        cell.postDescriptionLabel.text = currentPost.caption
         cell.postNameLabel.text = "Jane Doe"
         
         return cell

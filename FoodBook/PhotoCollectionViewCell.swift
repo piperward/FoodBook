@@ -25,6 +25,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     func updateView() {
-        photo.image = post?.photo
+        //photo.image = post?.photo
     }
 }
