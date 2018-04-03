@@ -257,6 +257,13 @@
                                     <action selector="signInAction:" destination="a8G-gf-AjK" eventType="touchUpInside" id="IHI-YH-mTy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-kv-8Sp">
+                                <rect key="frame" x="40" y="259" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -271,11 +278,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g9Q-i3-Pxy"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="py7-BQ-7hV" id="wAB-93-VpI"/>
+                        <outlet property="statusLabel" destination="7fl-kv-8Sp" id="kbU-xz-yqb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfX-YI-GW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aH0-f5-8Sp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-328" y="484"/>
+            <point key="canvasLocation" x="-328.98550724637681" y="483.42391304347831"/>
         </scene>
     </scenes>
     <resources>
