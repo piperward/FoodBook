@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 public class Post {
     
     var caption: String
     var photo: UIImage?
     var photoUrl: String?
-    //var author: String
+    let ref: DatabaseReference?
     
     init(caption: String, photo: UIImage?) {
         self.caption = caption
         self.photo = photo
+        self.ref = nil
+    }
+    
+    init(snapshot: DataSnapshot) {
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        caption = snapshotValue["caption"] as! String
+        photoUrl = snapshotValue["photoUrl"] as? String
+        ref = snapshot.ref
     }
     
     func toAnyObject() -> Any {

@@ -14,6 +14,7 @@ public var postList = [Post]()
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var postCellIdentifier = "postCellIdentifier"
+    let ref = Database.database().reference(withPath: "posts")
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +24,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Attach a listener to receive updates whenever the posts endpoint is modified
+        ref.observe(.value, with: { snapshot in
+            // Store the latest version of the data in a local variable inside the listener’s closure.
+            var newPosts: [Post] = []
+            // Loop through the posts provided by the snapshot that the closure returned, creating list
+            for item in snapshot.children {
+                let post = Post(snapshot: item as! DataSnapshot)
+                newPosts.append(post)
+            }
+            
+            // Reassign items to the latest version of the data, reload the table view
+            postList = newPosts
+            self.tableView.reloadData()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

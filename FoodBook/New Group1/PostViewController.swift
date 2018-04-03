@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseStorage
+import FirebaseDatabase
+import FirebaseAuth
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -133,7 +135,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     // Called when the user touches on the main view (outside the UITextField).
-    //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -145,16 +146,4 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.imageSelected = false
         self.selectedImage = nil
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
-
