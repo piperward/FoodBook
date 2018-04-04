@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileUserViewController: UIViewController {
     
     var user: User!
     var posts: [Post] = []
+    
+    let ref = Database.database().reference(withPath: "posts")
     
     //MARK: Properties
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,14 +26,26 @@ class ProfileUserViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        posts = postList
-        
         user = User()
         user.email = "piperward@utexas.edu"
-        user.id = "1"
+        user.id = Auth.auth().currentUser?.uid
         user.username = "Jane Doe"
         
-        collectionView.reloadData()
+        ref.observe(.value, with: { snapshot in
+            // Store the latest version of the data in a local variable inside the listener’s closure.
+            var myPosts: [Post] = []
+            // Loop through the posts provided by the snapshot that the closure returned, creating list
+            for item in snapshot.children {
+                let post = Post(snapshot: item as! DataSnapshot)
+                if post.uid == self.user.id! {
+                    myPosts.append(post)
+                }
+            }
+            
+            // Reassign items to the latest version of the data, reload the table view
+            self.posts = myPosts
+            self.collectionView.reloadData()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +58,6 @@ class ProfileUserViewController: UIViewController {
     }
     
     private func reload() {
-        posts = postList
         collectionView.reloadData()
     }
 }
@@ -82,6 +96,8 @@ extension ProfileUserViewController: UICollectionViewDataSource {
             headerViewCell.user = user
             //headerViewCell.delegate = self.delegate
             //headerViewCell.delegate2 = self
+            // FIXME (?)
+            headerViewCell.myPostsCountLabel.text! = "\(posts.count)"
         }
         return headerViewCell
     }

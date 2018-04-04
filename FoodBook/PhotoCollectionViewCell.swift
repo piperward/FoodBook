@@ -24,7 +24,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateView() {
-        //photo.image = post?.photo
+    func updateView() {        
+        let url = URL(string: (post?.photoUrl)!)
+        if let data = try? Data(contentsOf: url!) {
+            photo.image = UIImage(data: data)!
+        }
     }
 }

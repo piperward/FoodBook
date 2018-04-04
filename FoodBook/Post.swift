@@ -13,12 +13,14 @@ public class Post {
     
     var caption: String
     var photoUrl: String
+    var uid: String
     let ref: DatabaseReference
     
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         caption = snapshotValue["caption"] as! String
         photoUrl = snapshotValue["photoUrl"] as! String
+        uid = snapshotValue["uid"] as! String
         ref = snapshot.ref
     }
     
