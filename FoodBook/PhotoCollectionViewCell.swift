@@ -24,7 +24,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateView() {        
+    func updateView() {
+        // Download image from its Firebase Storage URL
         let url = URL(string: (post?.photoUrl)!)
         if let data = try? Data(contentsOf: url!) {
             photo.image = UIImage(data: data)!

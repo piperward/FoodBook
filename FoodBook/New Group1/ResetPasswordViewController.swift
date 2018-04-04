@@ -27,6 +27,8 @@ class ResetPasswordViewController: UIViewController {
     }
     
     //MARK: Actions
+    
+    // Sends a password reset email to the provided email address if it's in the database
     @IBAction func reset(_ sender: Any) {
         if emailTextField.text! != "" {
             Auth.auth().sendPasswordReset(withEmail: emailTextField.text!, completion: { error in
@@ -44,6 +46,19 @@ class ResetPasswordViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Keyboard dismissal methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

@@ -27,7 +27,7 @@ class ProfileUserViewController: UIViewController {
         collectionView.delegate = self
         
         user = User()
-        user.email = "piperward@utexas.edu"
+        user.email = Auth.auth().currentUser?.email
         user.id = Auth.auth().currentUser?.uid
         user.username = "Jane Doe"
         

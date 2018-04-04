@@ -17,6 +17,7 @@ class User {
     
     static func transformUser(dict: [String: Any], key: String) -> User {
         let user = User()
+        // Extract data by key
         user.email = dict["email"] as? String
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String

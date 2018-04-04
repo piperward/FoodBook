@@ -65,8 +65,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func onUploadButtonPressed(_ sender: Any) {
         if imageSelected {
-            //postList.insert(post, at: 0)
-            
+            // Send image data to be stored in Firebase
             if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                 let ratio = profileImg.size.width / profileImg.size.height
                 uploadDataToServer(data: imageData, ratio: ratio, caption: postTextView.text!)
@@ -86,6 +85,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func uploadImageToFirebaseStorage(data: Data, onSuccess: @escaping (_ imageUrl: String) -> Void) {
         let photoIdString = NSUUID().uuidString
+        // Put image data in Firebase Storage
         let storageRef = Storage.storage().reference(forURL: "gs://foodbook-9ebb1.appspot.com/").child("posts").child(photoIdString)
         storageRef.putData(data, metadata: nil) { (metadata, error) in
             if error != nil {
@@ -101,10 +101,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let newPostId = ref.childByAutoId().key
         let newPostReference = ref.child(newPostId)
         
+        // If this user is somehow not the current logged in user, do not upload data
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
         
+        // Store post data in the following format
         let currentUserId = currentUser.uid
         let dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio] as [String : Any]
         newPostReference.setValue(dict, withCompletionBlock: {
@@ -112,19 +114,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if error != nil {
                 return
             }
-            /*
-            Api.Feed.REF_FEED.child(Api.User.CURRENT_USER!.uid).child(newPostId).setValue(true)
-            
-            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
-            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-            })
-            ProgressHUD.showSuccess("Success")
- */
-            //onSuccess()
         })
     }
     
