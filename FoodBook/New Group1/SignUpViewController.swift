@@ -47,13 +47,18 @@ class SignUpViewController: UIViewController {
                     
                     let uid = user?.uid
                     self.setUserInfomation(username: username!, email: email!, uid: uid!)
+                    
+                    self.dismissScene()
+                }
+                else {
+                    print("Error: " + error.debugDescription)
                 }
             }
         }
     }
     
     @IBAction func signIn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismissScene()
     }
     
     // Adds a new user to the database using the provided information
@@ -65,16 +70,19 @@ class SignUpViewController: UIViewController {
     }
     
     // Keyboard dismissal methods
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     // Called when the user touches on the main view (outside the UITextField).
-    //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //Dimiss the current view
+    func dismissScene() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

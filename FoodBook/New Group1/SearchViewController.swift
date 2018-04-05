@@ -56,8 +56,6 @@ class SearchViewController: UIViewController {
         })
     }
     
-    // FIXME: Keyboard dismissal methods
-    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "Search_ProfileSegue" {
 //            let profileVC = segue.destination as! ProfileUserViewController

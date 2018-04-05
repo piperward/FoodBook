@@ -96,7 +96,6 @@ extension ProfileUserViewController: UICollectionViewDataSource {
             headerViewCell.user = user
             //headerViewCell.delegate = self.delegate
             //headerViewCell.delegate2 = self
-            // FIXME (?)
             headerViewCell.myPostsCountLabel.text! = "\(posts.count)"
         }
         return headerViewCell
