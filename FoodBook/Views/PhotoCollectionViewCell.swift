@@ -30,5 +30,15 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         if let data = try? Data(contentsOf: url!) {
             photo.image = UIImage(data: data)!
         }
+        
+        let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
+        photo.addGestureRecognizer(tapGestureForPhoto)
+        photo.isUserInteractionEnabled = true
+    }
+    
+    @objc func photo_TouchUpInside() {
+        if let id = post?.id {
+            delegate?.goToDetailVC(postId: id)
+        }
     }
 }

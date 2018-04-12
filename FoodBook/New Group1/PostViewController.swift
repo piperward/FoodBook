@@ -68,18 +68,18 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // Send image data to be stored in Firebase
             if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                 let ratio = profileImg.size.width / profileImg.size.height
-                uploadDataToServer(data: imageData, ratio: ratio, caption: postTextView.text!)
+                uploadDataToServer(data: imageData, ratio: ratio, caption: postTextView.text!, onSuccess: {
+                    //Clean up post scene and move to home scene
+                    self.clean()
+                    self.navigationController?.tabBarController?.selectedIndex = 0
+                })
             }
-            
-            //Clean up post scene and move to home scene
-            self.clean()
-            self.navigationController?.tabBarController?.selectedIndex = 0
         }
     }
     
-    func uploadDataToServer(data: Data, ratio: CGFloat, caption: String) {
+    func uploadDataToServer(data: Data, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
         uploadImageToFirebaseStorage(data: data) { (photoURL) in
-            self.sendDataToDatabase(photoUrl: photoURL, ratio: ratio, caption: caption)
+            self.sendDataToDatabase(photoUrl: photoURL, ratio: ratio, caption: caption, onSuccess: onSuccess)
         }
     }
     
@@ -97,7 +97,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String) {
+    func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
         let newPostId = ref.childByAutoId().key
         let newPostReference = ref.child(newPostId)
         
@@ -114,6 +114,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if error != nil {
                 return
             }
+        
+            Api.REF_FEED.child(Api.CURRENT_USER!.uid).child(newPostId).setValue(true)
+
+            let myPostRef = Api.REF_MYPOSTS.child(currentUserId).child(newPostId)
+            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    return
+                }
+            })
+            onSuccess()
         })
     }
     

@@ -34,40 +34,49 @@ class SignUpViewController: UIViewController {
     
     //MARK: Actions
     
-    @IBAction func signUp(_ sender: Any) {
-        let username = usernameTextField.text
-        let email = emailTextField.text
-        let password = passwordTextField.text
+@IBAction func signUp(_ sender: Any) {
+    //        let username = usernameTextField.text
+    //        let email = emailTextField.text
+    //        let password = passwordTextField.text
+    //
+    //        // If no field is empty, create a new user with Firebase
+    //        if username! != "" && email! != "" && password! != "" {
+    //            Auth.auth().createUser(withEmail: email!, password: password!) { user, error in
+    //                if error == nil {
+    //                    Auth.auth().signIn(withEmail: email!, password: password!)
+    //
+    //                    let uid = user?.uid
+    //                    self.setUserInfomation(username: username!, email: email!, uid: uid!)
+    //
+    //                    self.dismissScene()
+    //                }
+    //                else {
+    //                    print("Error: " + error.debugDescription)
+    //                }
+    //            }
+    //        }
+    
+    //        view.endEditing(true)
+    //ProgressHUD.show("Waiting...", interaction: false)
+    //        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
         
-        // If no field is empty, create a new user with Firebase
-        if username! != "" && email! != "" && password! != "" {
-            Auth.auth().createUser(withEmail: email!, password: password!) { user, error in
-                if error == nil {
-                    Auth.auth().signIn(withEmail: email!, password: password!)
-                    
-                    let uid = user?.uid
-                    self.setUserInfomation(username: username!, email: email!, uid: uid!)
-                    
-                    self.dismissScene()
-                }
-                else {
-                    print("Error: " + error.debugDescription)
-                }
-            }
-        }
+    AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+                //ProgressHUD.showSuccess("Success")
+                self.dismissScene()
+            }, onError: { (errorString) in
+                //ProgressHUD.showError(errorString!)
+                print(errorString!)
+            })
+//    else {
+//            ProgressHUD.showError("Profile Image can't be empty")
+//        }
     }
     
     @IBAction func signIn(_ sender: Any) {
         dismissScene()
     }
     
-    // Adds a new user to the database using the provided information
-    func setUserInfomation(username: String, email: String, uid: String) {
-        let ref = Database.database().reference()
-        let usersReference = ref.child("users")
-        let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username, "username_lowercase": username.lowercased(), "email": email])
-    }
+
     
     // Keyboard dismissal methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {

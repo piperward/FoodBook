@@ -13,8 +13,7 @@ class ProfileUserViewController: UIViewController {
     
     var user: User!
     var posts: [Post] = []
-    
-    let ref = Database.database().reference(withPath: "posts")
+    var userId = ""
     
     //MARK: Properties
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,25 +25,29 @@ class ProfileUserViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        user = User()
-        user.email = Auth.auth().currentUser?.email
-        user.id = Auth.auth().currentUser?.uid
-        user.username = "Jane Doe"
-        
-        ref.observe(.value, with: { snapshot in
-            // Store the latest version of the data in a local variable inside the listener’s closure.
-            var myPosts: [Post] = []
-            // Loop through the posts provided by the snapshot that the closure returned, creating list
-            for item in snapshot.children {
-                let post = Post(snapshot: item as! DataSnapshot)
-                if post.uid == self.user.id! {
-                    myPosts.append(post)
-                }
-            }
-            
-            // Reassign items to the latest version of the data, reload the table view
-            self.posts = myPosts
+        fetchUser()
+        fetchMyPosts()
+    }
+    
+    func fetchUser() {
+        Api.observeCurrentUser { (user) in
+            self.user = user
+            self.navigationItem.title = user.username
             self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchMyPosts() {
+        guard let currentUser = Api.CURRENT_USER else {
+            return
+        }
+        Api.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {
+            snapshot in
+            Api.observePost(withId: snapshot.key, completion: {
+                post in
+                self.posts.append(post)
+                self.collectionView.reloadData()
+            })
         })
     }
     
@@ -94,16 +97,16 @@ extension ProfileUserViewController: UICollectionViewDataSource {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
         if let user = self.user {
             headerViewCell.user = user
+            //This is used for the follow button
             //headerViewCell.delegate = self.delegate
-            //headerViewCell.delegate2 = self
             headerViewCell.myPostsCountLabel.text! = "\(posts.count)"
         }
         return headerViewCell
     }
 }
-
+//TODO create segue
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
-        performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postId)
+        //performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postId)
     }
 }

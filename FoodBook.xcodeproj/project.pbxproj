@@ -14,6 +14,7 @@
 		27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9D2044DE520094E3FC /* Home.storyboard */; };
 		27E18FA12044DEBB0094E3FC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E18F9F2044DEBB0094E3FC /* Search.storyboard */; };
 		860222402047329F0019425B /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8602223E2047329F0019425B /* Start.storyboard */; };
+		86057C57207FBBB900D0BF5A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86057C56207FBBB900D0BF5A /* AuthService.swift */; };
 		861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */; };
 		8640EBDA20743BAA00D3435C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640EBD920743BAA00D3435C /* SearchViewController.swift */; };
 		8640EBDC20743C8800D3435C /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */; };
@@ -27,6 +28,7 @@
 		868FA5BF2062C1F300BE3484 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */; };
 		868FA5C12062C20400BE3484 /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */; };
 		86BDF399206085FE00B74C21 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDF398206085FE00B74C21 /* SignInViewController.swift */; };
+		86DA6121207D4D4A006A5A85 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA6120207D4D4A006A5A85 /* Api.swift */; };
 		86F56872203F23970018FFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56871203F23970018FFBE /* AppDelegate.swift */; };
 		86F56879203F23970018FFBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F56877203F23970018FFBE /* Main.storyboard */; };
 		86F5687B203F23970018FFBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5687A203F23970018FFBE /* Assets.xcassets */; };
@@ -44,6 +46,7 @@
 		27E18FA02044DEBB0094E3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		44BE3D0FD003220376CC5473 /* Pods_FoodBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8602223F2047329F0019425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodBook/Base.lproj/Start.storyboard; sourceTree = "<group>"; };
+		86057C56207FBBB900D0BF5A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8640EBD920743BAA00D3435C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		86BDF398206085FE00B74C21 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		86DA6120207D4D4A006A5A85 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		86F5686E203F23970018FFBE /* FoodBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F56871203F23970018FFBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86F56878203F23970018FFBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +130,26 @@
 			path = "New Group2";
 			sourceTree = "<group>";
 		};
+		86DA611E207D3109006A5A85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */,
+				868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */,
+				8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */,
+				868FA5B02062B84400BE3484 /* PostTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86DA611F207D312D006A5A85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				867EAE8D2062F31900AF7F91 /* User.swift */,
+				868FA5AE2062B81F00BE3484 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		86F56865203F23970018FFBE = {
 			isa = PBXGroup;
 			children = (
@@ -149,13 +173,11 @@
 			children = (
 				868FDBDB207283A70061E68E /* Storyboards */,
 				868FDBDA2072837E0061E68E /* ViewControllers */,
-				868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */,
-				867EAE8D2062F31900AF7F91 /* User.swift */,
-				868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */,
-				8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */,
+				86DA611F207D312D006A5A85 /* Model */,
+				86DA611E207D3109006A5A85 /* Views */,
 				86F56871203F23970018FFBE /* AppDelegate.swift */,
-				868FA5B02062B84400BE3484 /* PostTableViewCell.swift */,
-				868FA5AE2062B81F00BE3484 /* Post.swift */,
+				86DA6120207D4D4A006A5A85 /* Api.swift */,
+				86057C56207FBBB900D0BF5A /* AuthService.swift */,
 				86F5687A203F23970018FFBE /* Assets.xcassets */,
 				86F5687F203F23970018FFBE /* Info.plist */,
 				27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */,
@@ -323,6 +345,8 @@
 				868FA5C12062C20400BE3484 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */,
 				868FA5B32062B84400BE3484 /* PostTableViewCell.swift in Sources */,
+				86057C57207FBBB900D0BF5A /* AuthService.swift in Sources */,
+				86DA6121207D4D4A006A5A85 /* Api.swift in Sources */,
 				8686F1D5206EEB950046BC82 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
