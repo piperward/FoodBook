@@ -19,17 +19,29 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var signUpButton: UIButton!
     
+    var selectedImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //Hides text as it is typed
         passwordTextField.isSecureTextEntry = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
+        profilePictureImageView.addGestureRecognizer(tapGesture)
+        profilePictureImageView.isUserInteractionEnabled = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
     
     //MARK: Actions
@@ -58,18 +70,16 @@ class SignUpViewController: UIViewController {
     
     //        view.endEditing(true)
     //ProgressHUD.show("Waiting...", interaction: false)
-    //        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-        
-    AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+    
+    if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+    AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
                 //ProgressHUD.showSuccess("Success")
                 self.dismissScene()
             }, onError: { (errorString) in
                 //ProgressHUD.showError(errorString!)
                 print(errorString!)
             })
-//    else {
-//            ProgressHUD.showError("Profile Image can't be empty")
-//        }
+        }
     }
     
     @IBAction func signIn(_ sender: Any) {
@@ -95,3 +105,13 @@ class SignUpViewController: UIViewController {
     }
 }
 
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("did Finish Picking Media")
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImage = image
+            profilePictureImageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}

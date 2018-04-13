@@ -63,6 +63,19 @@ class ProfileUserViewController: UIViewController {
     private func reload() {
         collectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsSegue" {
+            let settingVC = segue.destination as! SettingsViewController
+            settingVC.delegate = self
+        }
+        
+//        if segue.identifier == "Profile_DetailSegue" {
+//            let detailVC = segue.destination as! DetailViewController
+//            let postId = sender  as! String
+//            detailVC.postId = postId
+//        }
+    }
 }
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout {
@@ -104,6 +117,13 @@ extension ProfileUserViewController: UICollectionViewDataSource {
         return headerViewCell
     }
 }
+
+extension ProfileUserViewController: SettingsViewControllerDelegate {
+    func updateUserInfor() {
+        self.fetchUser()
+    }
+}
+
 //TODO create segue
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {

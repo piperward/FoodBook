@@ -123,6 +123,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-jA-eRV" userLabel="Profile Picture Image View">
                                 <rect key="frame" x="157" y="61" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ZiO-nL-qzO"/>
                                     <constraint firstAttribute="height" constant="100" id="beF-sd-Cjt"/>

@@ -112,6 +112,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         newPostReference.setValue(dict, withCompletionBlock: {
             (error, ref) in
             if error != nil {
+                print("senddatatodatabase error != nil")
                 return
             }
         

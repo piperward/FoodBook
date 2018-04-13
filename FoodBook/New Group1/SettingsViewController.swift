@@ -9,17 +9,57 @@
 import UIKit
 import Firebase
 
+protocol SettingsViewControllerDelegate {
+    func updateUserInfor()
+}
+
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    
+    var delegate: SettingsViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        fetchCurrentUser()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func fetchCurrentUser() {
+        Api.observeCurrentUser { (user) in
+            self.usernameTextField.text = user.username
+            self.emailTextField.text = user.email
+            if let profileUrl = URL(string: user.profileImageUrl!) {
+                let data = try? Data(contentsOf: profileUrl)
+                if let imageData = data {
+                    self.profilePictureImageView.image = UIImage(data: imageData)
+                }
+            }
+        }
+    }
+    
+    @IBAction func onSaveButtonPressed(_ sender: Any) {
+        if let profileImg = self.profilePictureImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            AuthService.updateUserInfor(username: usernameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
+                self.delegate?.updateUserInfor()
+            }, onError: { (errorMessage) in
+                //ProgressHUD.showError(errorMessage)
+            })
+        }
+    }
+    
+    @IBAction func onChangeProfilePicturePressed(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func signOut(_ sender: Any) {
@@ -58,4 +98,14 @@ class SettingsViewController: UIViewController {
     }
     */
 
+}
+
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("did Finish Picking Media")
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            profilePictureImageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
