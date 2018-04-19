@@ -31,10 +31,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DCS-3Z-BbS">
-                                                    <rect key="frame" x="35" y="26" width="36" height="36"/>
+                                                    <rect key="frame" x="21" y="21" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="36" id="HvZ-l9-os2"/>
-                                                        <constraint firstAttribute="height" constant="36" id="en7-I7-TCM"/>
+                                                        <constraint firstAttribute="width" constant="40" id="HvZ-l9-os2"/>
+                                                        <constraint firstAttribute="height" constant="40" id="en7-I7-TCM"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -43,13 +43,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phZ-V1-7jQ">
-                                                    <rect key="frame" x="79" y="25" width="36" height="27"/>
+                                                    <rect key="frame" x="69" y="25" width="36" height="26"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4D-Ni-f5X">
-                                                    <rect key="frame" x="0.0" y="70" width="414" height="309"/>
+                                                    <rect key="frame" x="0.0" y="69" width="414" height="310"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="320" id="ifS-nu-hYf"/>
                                                     </constraints>
@@ -97,13 +97,13 @@
                                                 <constraint firstItem="a4D-Ni-f5X" firstAttribute="top" secondItem="phZ-V1-7jQ" secondAttribute="bottom" constant="18" id="526-sp-dqw"/>
                                                 <constraint firstItem="K1R-6C-GPL" firstAttribute="trailing" secondItem="a4D-Ni-f5X" secondAttribute="trailing" id="6YY-gJ-eGC"/>
                                                 <constraint firstItem="oq1-wU-WFB" firstAttribute="top" secondItem="a4D-Ni-f5X" secondAttribute="bottom" constant="15" id="DF3-CN-NHC"/>
-                                                <constraint firstItem="DCS-3Z-BbS" firstAttribute="leading" secondItem="kiN-MQ-bjL" secondAttribute="leadingMargin" constant="15" id="JEo-Ss-mze"/>
+                                                <constraint firstItem="DCS-3Z-BbS" firstAttribute="leading" secondItem="kiN-MQ-bjL" secondAttribute="leadingMargin" constant="1" id="JEo-Ss-mze"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Dxi-uu-dxV" secondAttribute="bottom" constant="26" id="KE6-MJ-9E7"/>
                                                 <constraint firstItem="a4D-Ni-f5X" firstAttribute="top" secondItem="DCS-3Z-BbS" secondAttribute="bottom" constant="8" id="LAn-W3-YqI"/>
                                                 <constraint firstItem="Dxi-uu-dxV" firstAttribute="trailing" secondItem="kiN-MQ-bjL" secondAttribute="trailingMargin" id="MZh-xU-wka"/>
                                                 <constraint firstItem="oq1-wU-WFB" firstAttribute="leading" secondItem="kiN-MQ-bjL" secondAttribute="leadingMargin" id="N12-om-qQ8"/>
                                                 <constraint firstItem="Dxi-uu-dxV" firstAttribute="top" secondItem="i7v-UX-VkQ" secondAttribute="bottom" constant="5" id="Nsm-6K-WhH"/>
-                                                <constraint firstItem="DCS-3Z-BbS" firstAttribute="top" secondItem="kiN-MQ-bjL" secondAttribute="topMargin" constant="15" id="OuF-Ca-2TF"/>
+                                                <constraint firstItem="DCS-3Z-BbS" firstAttribute="top" secondItem="kiN-MQ-bjL" secondAttribute="topMargin" constant="10" id="OuF-Ca-2TF"/>
                                                 <constraint firstItem="oq1-wU-WFB" firstAttribute="top" secondItem="a4D-Ni-f5X" secondAttribute="bottom" constant="15" id="VbK-7w-x7l"/>
                                                 <constraint firstItem="m7k-rQ-xaj" firstAttribute="leading" secondItem="oq1-wU-WFB" secondAttribute="trailing" constant="20" id="XcJ-Lb-tHs"/>
                                                 <constraint firstAttribute="trailing" secondItem="a4D-Ni-f5X" secondAttribute="trailing" id="b84-vy-yJY"/>
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pqb-5x-5Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781.5999999999999" y="268.51574212893553"/>
+            <point key="canvasLocation" x="2781.1594202898555" y="268.20652173913044"/>
         </scene>
         <!--Home-->
         <scene sceneID="hSa-SH-e5D">

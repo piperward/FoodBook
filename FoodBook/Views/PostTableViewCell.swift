@@ -87,6 +87,9 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
+        else {
+            profileImageView.image = UIImage(named: "placeholderImg")
+        }
     }
     
     override func awakeFromNib() {
@@ -121,7 +124,7 @@ class PostTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         print("11111")
-        profileImageView.image = UIImage(named: "placeholderImg")
+        //profileImageView.image = UIImage(named: "placeholderImg")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
