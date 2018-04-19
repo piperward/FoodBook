@@ -70,11 +70,11 @@ class ProfileUserViewController: UIViewController {
             settingVC.delegate = self
         }
         
-//        if segue.identifier == "Profile_DetailSegue" {
-//            let detailVC = segue.destination as! DetailViewController
-//            let postId = sender  as! String
-//            detailVC.postId = postId
-//        }
+        if segue.identifier == "detailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender  as! String
+            detailVC.postId = postId
+        }
     }
 }
 
@@ -127,6 +127,6 @@ extension ProfileUserViewController: SettingsViewControllerDelegate {
 //TODO create segue
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
-        //performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postId)
+        performSegue(withIdentifier: "detailSegue", sender: postId)
     }
 }
