@@ -143,7 +143,7 @@
         <scene sceneID="VdJ-Zv-rGP">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JyA-uU-2Hc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="happy" selectedImage="happy" id="tnj-AH-Aao"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="paper-piece-7" selectedImage="paper-piece-7" id="tnj-AH-Aao"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V2u-RG-PjE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -162,7 +162,7 @@
         <scene sceneID="WDN-HS-pIZ">
             <objects>
                 <navigationController storyboardIdentifier="NavigationProfile" automaticallyAdjustsScrollViewInsets="NO" id="kjF-fl-KQ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="happy" selectedImage="happy" id="oC3-vZ-sgN">
+                    <tabBarItem key="tabBarItem" title="Profile" image="happy" selectedImage="paper-piece-7" id="oC3-vZ-sgN">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -379,6 +379,7 @@
     </scenes>
     <resources>
         <image name="happy" width="30" height="30"/>
+        <image name="paper-piece-7" width="30" height="30"/>
         <image name="placeholderImg" width="225" height="225"/>
     </resources>
 </document>

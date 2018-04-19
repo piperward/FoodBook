@@ -88,7 +88,7 @@
         <scene sceneID="O1U-44-2Wd">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="see-PO-MUO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="plus" selectedImage="plus" id="Kio-rN-Gjk"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="write-simple-7" selectedImage="write-simple-7" id="Kio-rN-Gjk"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wBW-K4-IC5">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -107,7 +107,7 @@
         <scene sceneID="f2G-GK-WRC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBv-t7-H2w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="plus" selectedImage="plus" id="HIU-8N-pE0"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="plus" selectedImage="write-simple-7" id="HIU-8N-pE0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dQb-QD-jyN">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -126,5 +126,6 @@
     <resources>
         <image name="placeholder" width="300" height="300"/>
         <image name="plus" width="30" height="30"/>
+        <image name="write-simple-7" width="29" height="30"/>
     </resources>
 </document>

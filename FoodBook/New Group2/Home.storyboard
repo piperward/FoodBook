@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="521" id="DaN-dE-2AD" customClass="PostTableViewCell" customModule="FoodBook" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="521" id="DaN-dE-2AD" customClass="PostTableViewCell" customModule="FoodBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="521"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DaN-dE-2AD" id="kiN-MQ-bjL">
@@ -158,7 +158,7 @@
         <scene sceneID="hSa-SH-e5D">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UcS-pc-EBb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="mCU-UY-hDz"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-7" selectedImage="home-7" id="mCU-UY-hDz"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QBq-QP-Mwb">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -177,7 +177,7 @@
         <scene sceneID="NUh-mL-cY8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="umm-TA-Wgy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="fpr-zS-mRp"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home-7" id="fpr-zS-mRp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P2m-wu-YWx">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -196,6 +196,7 @@
     <resources>
         <image name="Comment" width="43" height="41"/>
         <image name="home" width="30" height="30"/>
+        <image name="home-7" width="30" height="30"/>
         <image name="like" width="46" height="41"/>
     </resources>
 </document>
