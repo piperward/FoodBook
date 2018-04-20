@@ -72,8 +72,10 @@ class ProfileUserViewController: UIViewController {
         
         if segue.identifier == "detailSegue" {
             let detailVC = segue.destination as! DetailViewController
+            detailVC.delegate = self
             let postId = sender  as! String
             detailVC.postId = postId
+            
         }
     }
 }
@@ -128,5 +130,11 @@ extension ProfileUserViewController: SettingsViewControllerDelegate {
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "detailSegue", sender: postId)
+    }
+}
+
+extension ProfileUserViewController: DetailViewControllerDelegate {
+    func removePostFromDataSource(postId: String) {
+        posts = posts.filter({$0.id != postId})
     }
 }

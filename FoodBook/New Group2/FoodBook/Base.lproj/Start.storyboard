@@ -79,9 +79,8 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsn-RL-URn" customClass="GIDSignInButton">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsn-RL-URn" customClass="GIDSignInButton">
                                 <rect key="frame" x="40" y="441" width="334" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -91,10 +90,13 @@
                             <constraint firstItem="eYU-KZ-k7o" firstAttribute="top" secondItem="Rdk-7z-6aW" secondAttribute="top" constant="127" id="Dog-pp-CiR"/>
                             <constraint firstItem="Rdk-7z-6aW" firstAttribute="bottom" secondItem="M38-oY-B0R" secondAttribute="bottom" constant="15" id="RdX-gI-YmW"/>
                             <constraint firstItem="Rdk-7z-6aW" firstAttribute="trailing" secondItem="Dbe-4Q-Dsj" secondAttribute="trailing" constant="40" id="TcD-bu-dyQ"/>
+                            <constraint firstItem="Fsn-RL-URn" firstAttribute="leading" secondItem="Rdk-7z-6aW" secondAttribute="leading" constant="40" id="fch-v6-2G1"/>
+                            <constraint firstItem="Rdk-7z-6aW" firstAttribute="trailing" secondItem="Fsn-RL-URn" secondAttribute="trailing" constant="40" id="hRL-dU-XdL"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="ir0-VJ-HNq"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="leading" secondItem="Rdk-7z-6aW" secondAttribute="leading" constant="40" id="kkl-tY-AYP"/>
                             <constraint firstItem="Dbe-4Q-Dsj" firstAttribute="centerY" secondItem="cXo-cd-fAj" secondAttribute="centerY" id="mFC-v8-Oez"/>
                             <constraint firstItem="eYU-KZ-k7o" firstAttribute="centerX" secondItem="cXo-cd-fAj" secondAttribute="centerX" id="por-eM-hju"/>
+                            <constraint firstItem="Fsn-RL-URn" firstAttribute="top" secondItem="Dbe-4Q-Dsj" secondAttribute="bottom" constant="8" id="rro-d6-gDk"/>
                             <constraint firstItem="M38-oY-B0R" firstAttribute="top" secondItem="lPa-lL-01N" secondAttribute="bottom" constant="5" id="tHb-j0-eMD"/>
                             <constraint firstItem="M38-oY-B0R" firstAttribute="centerX" secondItem="lPa-lL-01N" secondAttribute="centerX" id="wSW-yF-Hd2"/>
                         </constraints>

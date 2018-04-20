@@ -8,11 +8,19 @@
 
 import UIKit
 
+//protocol for refreshing user posts in ProfileUserViewController
+protocol DetailViewControllerDelegate {
+    //passes the postId that needs to be removed from the
+    func removePostFromDataSource(postId: String)
+}
+
 class DetailViewController: UIViewController {
     
     var postId = ""
     var post = Post()
     var user = User()
+    
+    var delegate: DetailViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -45,19 +53,21 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deletePost(_ sender: Any) {
+        //Remove post from database
         Api.REF_POSTS.child(post.id!).removeValue()
         Api.REF_MYPOSTS.child(user.id!).child(post.id!).removeValue()
+        Api.REF_FEED.child(user.id!).child(post.id!).removeValue()
+        //Remove  post from ProfileUserViewController's posts array
+        delegate?.removePostFromDataSource(postId: post.id!)
+        
+        //Alert user that post has been deleted
+        let alert = UIAlertController(title: nil, message: "Post deleted.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(action:UIAlertAction!) in
+            //Go back to profile page
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -75,7 +85,7 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
-extension DetailViewController: HomeTableViewCellDelegate {
+extension DetailViewController: PostTableViewCellDelegate {
     func goToCommentVC(postId: String) {
         //performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }

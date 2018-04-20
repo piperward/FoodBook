@@ -81,7 +81,7 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 //TODO create these segues
-extension HomeViewController: HomeTableViewCellDelegate {
+extension HomeViewController: PostTableViewCellDelegate {
     func goToCommentVC(postId: String) {
         //performSegue(withIdentifier: "CommentSegue", sender: postId)
     }

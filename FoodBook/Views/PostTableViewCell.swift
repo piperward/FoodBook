@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol HomeTableViewCellDelegate {
+protocol PostTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
 }
@@ -27,7 +27,7 @@ class PostTableViewCell: UITableViewCell {
     
     
     
-    var delegate: HomeTableViewCellDelegate?
+    var delegate: PostTableViewCellDelegate?
     var post: Post? {
         didSet {
             updateView()
