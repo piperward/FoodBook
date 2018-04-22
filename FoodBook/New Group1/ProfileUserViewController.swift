@@ -142,6 +142,6 @@ extension ProfileUserViewController: DetailViewControllerDelegate {
 
 extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {
-        performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
+        performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
 }

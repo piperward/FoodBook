@@ -267,9 +267,6 @@
                                                             <integer key="value" value="3"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="LbP-jb-9gA" kind="show" identifier="settingsSegue" id="jAh-fI-vHv"/>
-                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Xi-YVD">
                                                     <rect key="frame" x="0.0" y="0.0" width="269" height="35"/>
@@ -373,6 +370,7 @@
                     <connections>
                         <outlet property="collectionView" destination="RsF-j9-eOq" id="7La-fq-NkJ"/>
                         <segue destination="XaC-G4-S95" kind="show" identifier="detailSegue" id="Tku-sg-iOn"/>
+                        <segue destination="LbP-jb-9gA" kind="show" identifier="settingsSegue" id="cwU-XC-sKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="105-Vs-Dmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
