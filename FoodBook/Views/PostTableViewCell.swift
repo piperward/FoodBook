@@ -23,6 +23,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var heightConstraintPhoto: NSLayoutConstraint!
     
     
@@ -41,6 +42,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func updateView() {
+        ingredientsLabel.text = post?.ingredients
         captionLabel.text = post?.caption
         if let ratio = post?.ratio {
             heightConstraintPhoto.constant = UIScreen.main.bounds.width / ratio

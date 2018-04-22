@@ -11,7 +11,10 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, IngredientDelegate {
+    
+    @IBOutlet weak var recipeTableView: UITableView!
+    var ingredients = [String]()
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextView: UITextView!
@@ -19,17 +22,28 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var selectedImage:UIImage?
     let ref = Database.database().reference(withPath: "posts")
     var currentUser = ""
+    var ingredientDetails = ""
     
     private var imageSelected: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        recipeTableView.delegate = self
+        recipeTableView.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Delegate method
+    func getIngredientDetails(ingredientToReceive: String) {
+        let newIngredient = ingredientToReceive
+        ingredients.append(newIngredient)
+        
+        self.recipeTableView.reloadData()
     }
     
     @IBAction func onPostImageViewTapped(_ sender: UITapGestureRecognizer) {
@@ -63,12 +77,23 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onAddIngredientPressed(_ sender: Any) {
+        //FIXME: segue to recipeviewcontroller
+    }
+    
     @IBAction func onUploadButtonPressed(_ sender: Any) {
+        if ingredients.count == 0 {
+            ingredientDetails = "No ingredients specified"
+        } else {
+            for ingredient in ingredients {
+                ingredientDetails.append(ingredient + "\n")
+            }
+        }
         if imageSelected {
             // Send image data to be stored in Firebase
             if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                 let ratio = profileImg.size.width / profileImg.size.height
-                uploadDataToServer(data: imageData, ratio: ratio, caption: postTextView.text!, onSuccess: {
+                uploadDataToServer(data: imageData, ratio: ratio, caption: postTextView.text!, ingredients: ingredientDetails, onSuccess: {
                     //Clean up post scene and move to home scene
                     self.clean()
                     self.navigationController?.tabBarController?.selectedIndex = 0
@@ -77,9 +102,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func uploadDataToServer(data: Data, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
+    func uploadDataToServer(data: Data, ratio: CGFloat, caption: String, ingredients: String, onSuccess: @escaping () -> Void) {
         uploadImageToFirebaseStorage(data: data) { (photoURL) in
-            self.sendDataToDatabase(photoUrl: photoURL, ratio: ratio, caption: caption, onSuccess: onSuccess)
+            self.sendDataToDatabase(photoUrl: photoURL, ratio: ratio, caption: caption, ingredients: ingredients, onSuccess: onSuccess)
         }
     }
     
@@ -97,7 +122,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
+    func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, ingredients: String,  onSuccess: @escaping () -> Void) {
         let newPostId = ref.childByAutoId().key
         let newPostReference = ref.child(newPostId)
         
@@ -108,7 +133,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // Store post data in the following format
         let currentUserId = currentUser.uid
-        let dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio] as [String : Any]
+        let dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio, "ingredients": ingredients] as [String : Any]
         newPostReference.setValue(dict, withCompletionBlock: {
             (error, ref) in
             if error != nil {
@@ -141,9 +166,53 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     //Resets image and caption to default state
     func clean() {
-        self.postTextView.text = "Caption"
+        self.postTextView.text = "Recipe instructions"
         self.postImageView.image = UIImage(named: "placeholder")
         self.imageSelected = false
         self.selectedImage = nil
+        self.ingredients.removeAll()
+        self.recipeTableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showIngredientPopover" {
+            let vc = segue.destination
+            let controller = vc.popoverPresentationController
+            if controller != nil {
+                controller?.delegate = self
+            }
+            if let destination = segue.destination as? IngredientViewController {
+                destination.delegate = self
+            }
+        }
+    }
+}
+
+extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath as IndexPath)
+        
+        let row = indexPath.row
+        cell.textLabel?.text = ingredients[row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.ingredients.remove(at: indexPath.row)
+            recipeTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }
