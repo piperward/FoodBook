@@ -148,4 +148,62 @@ struct Api {
             }
         })
     }
+    
+    //MARK: FollowAPI
+    func followAction(withUser id: String) {
+        Api.REF_MYPOSTS.child(id).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                for key in dict.keys {
+                    Database.database().reference().child("feed").child(Api.CURRENT_USER!.uid).child(key).setValue(true)
+                }
+            }
+        })
+        Api.REF_FOLLOWERS.child(id).child(Api.CURRENT_USER!.uid).setValue(true)
+        Api.REF_FOLLOWING.child(Api.CURRENT_USER!.uid).child(id).setValue(true)
+    }
+    
+    func unFollowAction(withUser id: String) {
+        
+        Api.REF_MYPOSTS.child(id).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                for key in dict.keys {
+                    Database.database().reference().child("feed").child(Api.CURRENT_USER!.uid).child(key).removeValue()
+                }
+            }
+        })
+        
+        Api.REF_FOLLOWERS.child(id).child(Api.CURRENT_USER!.uid).setValue(NSNull())
+        Api.REF_FOLLOWING.child(Api.CURRENT_USER!.uid).child(id).setValue(NSNull())
+    }
+    
+    func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
+        Api.REF_FOLLOWERS.child(userId).child(Api.CURRENT_USER!.uid).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if let _ = snapshot.value as? NSNull {
+                completed(false)
+            } else {
+                completed(true)
+            }
+        })
+    }
+    
+    func fetchCountFollowing(userId: String, completion: @escaping (Int) -> Void) {
+        Api.REF_FOLLOWING.child(userId).observe(.value, with: {
+            snapshot in
+            let count = Int(snapshot.childrenCount)
+            completion(count)
+        })
+        
+    }
+    
+    func fetchCountFollowers(userId: String, completion: @escaping (Int) -> Void) {
+        Api.REF_FOLLOWERS.child(userId).observe(.value, with: {
+            snapshot in
+            let count = Int(snapshot.childrenCount)
+            completion(count)
+        })
+        
+    }
 }

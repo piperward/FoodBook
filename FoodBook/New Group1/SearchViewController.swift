@@ -56,14 +56,14 @@ class SearchViewController: UIViewController {
         })
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "Search_ProfileSegue" {
-//            let profileVC = segue.destination as! ProfileUserViewController
-//            let userId = sender  as! String
-//            profileVC.userId = userId
-//            profileVC.delegate = self
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Search_ProfileSegue" {
+            let profileVC = segue.destination as! OtherProfileViewController
+            let userId = sender  as! String
+            profileVC.userId = userId
+            profileVC.delegate = self
+        }
+    }
     
 }
 
@@ -87,7 +87,24 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
         let user = users[indexPath.row]
         cell.user = user
-        //cell.delegate = self
+        cell.delegate = self
         return cell
+    }
+}
+
+extension SearchViewController: PeopleTableViewCellDelegate {
+    func goToProfilVC(userId: String) {
+        performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
+    }
+}
+
+extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
+    func updateFollowButton(forUser user: User) {
+        for u in self.users {
+            if u.id == user.id {
+                u.isFollowing = user.isFollowing
+                self.tableView.reloadData()
+            }
+        }
     }
 }

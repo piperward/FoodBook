@@ -15,6 +15,8 @@ class ProfileUserViewController: UIViewController {
     var posts: [Post] = []
     var userId = ""
     
+    var delegate: HeaderProfileCollectionReusableViewDelegate?
+    
     //MARK: Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -112,9 +114,8 @@ extension ProfileUserViewController: UICollectionViewDataSource {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
         if let user = self.user {
             headerViewCell.user = user
-            //This is used for the follow button
-            //headerViewCell.delegate = self.delegate
-            headerViewCell.myPostsCountLabel.text! = "\(posts.count)"
+            headerViewCell.delegate = self.delegate
+            headerViewCell.delegate2 = self
         }
         return headerViewCell
     }
@@ -136,5 +137,11 @@ extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
 extension ProfileUserViewController: DetailViewControllerDelegate {
     func removePostFromDataSource(postId: String) {
         posts = posts.filter({$0.id != postId})
+    }
+}
+
+extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
+    func goToSettingVC() {
+        performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
     }
 }

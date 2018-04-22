@@ -75,6 +75,7 @@
                     <navigationItem key="navigationItem" id="gDC-i5-Hp4"/>
                     <connections>
                         <outlet property="tableView" destination="fN2-5H-EHp" id="qI0-jT-jTq"/>
+                        <segue destination="ymQ-1w-h55" kind="show" identifier="Search_ProfileSegue" id="lzJ-O0-Slg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5u-ph-gfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,6 +119,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9N-Zh-QD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2022.4000000000001" y="76.46176911544228"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="tuO-39-IdR">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileUserViewController" storyboardName="OtherProfile" referencedIdentifier="ProfileUserViewController" id="ymQ-1w-h55" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5T-89-ds0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3288" y="37"/>
         </scene>
     </scenes>
     <resources>

@@ -28,7 +28,8 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followButton: UIButton!
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
-    
+    var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
+
     var user: User? {
         didSet {
             updateView()
@@ -62,7 +63,13 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             self.followersCountLabel.text = "\(count)"
         }
         
-//        updateStateFollowButton()
+        if user?.id == Api.CURRENT_USER?.uid {
+            followButton.setTitle("Edit Profile", for: UIControlState.normal)
+            followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
+            
+        } else {
+            updateStateFollowButton()
+        }
     }
     
     func clear() {
@@ -71,44 +78,59 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         self.followersCountLabel.text = ""
         self.followingCountLabel.text = ""
     }
-//    TODO implement followers
     
-//    func updateStateFollowButton() {
-//        if user!.isFollowing! {
-//            configureUnFollowButton()
-//        } else {
-//            configureFollowButton()
-//        }
-//    }
+    @objc func goToSettingVC() {
+        delegate2?.goToSettingVC()
+    }
     
-//    func configureUnFollowButton() {
-//        followButton.layer.borderWidth = 1
-//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-//        followButton.layer.cornerRadius = 5
-//        followButton.clipsToBounds = true
-//
-//        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-//        followButton.backgroundColor = UIColor.clear
-//        followButton.setTitle("Following", for: UIControlState.normal)
-//        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
-//    }
-//
-//
-//    func followAction() {
-//        if user!.isFollowing! == false {
-//            Api.Follow.followAction(withUser: user!.id!)
-//            configureUnFollowButton()
-//            user!.isFollowing! = true
-//            delegate?.updateFollowButton(forUser: user!)
-//        }
-//    }
-//
-//    func unFollowAction() {
-//        if user!.isFollowing! == true {
-//            Api.Follow.unFollowAction(withUser: user!.id!)
-//            configureFollowButton()
-//            user!.isFollowing! = false
-//            delegate?.updateFollowButton(forUser: user!)
-//        }
-//    }
+    func updateStateFollowButton() {
+        if user!.isFollowing! {
+            configureUnFollowButton()
+        } else {
+            configureFollowButton()
+        }
+    }
+    
+    func configureFollowButton() {
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        followButton.layer.cornerRadius = 5
+        followButton.clipsToBounds = true
+        
+        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+        followButton.setTitle("Follow", for: UIControlState.normal)
+        followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+    }
+    
+    func configureUnFollowButton() {
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        followButton.layer.cornerRadius = 5
+        followButton.clipsToBounds = true
+
+        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        followButton.backgroundColor = UIColor.clear
+        followButton.setTitle("Following", for: UIControlState.normal)
+        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
+    }
+
+
+    @objc func followAction() {
+        if user!.isFollowing! == false {
+            Api.followAction(withUser: user!.id!)
+            configureUnFollowButton()
+            user!.isFollowing! = true
+            delegate?.updateFollowButton(forUser: user!)
+        }
+    }
+
+    @objc func unFollowAction() {
+        if user!.isFollowing! == true {
+            Api.unFollowAction(withUser: user!.id!)
+            configureFollowButton()
+            user!.isFollowing! = false
+            delegate?.updateFollowButton(forUser: user!)
+        }
+    }
 }

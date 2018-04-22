@@ -19,6 +19,8 @@
 		861F8CD02061C7AB00C4D471 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */; };
 		8640EBDA20743BAA00D3435C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640EBD920743BAA00D3435C /* SearchViewController.swift */; };
 		8640EBDC20743C8800D3435C /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */; };
+		866C754A208D31A100BB6809 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866C7549208D31A100BB6809 /* OtherProfileViewController.swift */; };
+		866C754F208D3ADA00BB6809 /* OtherProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866C754E208D3ADA00BB6809 /* OtherProfile.storyboard */; };
 		867EAE8E2062F31900AF7F91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867EAE8D2062F31900AF7F91 /* User.swift */; };
 		8686F1D5206EEB950046BC82 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */; };
 		868FA5AF2062B81F00BE3484 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5AE2062B81F00BE3484 /* Post.swift */; };
@@ -52,6 +54,8 @@
 		861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8640EBD920743BAA00D3435C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8640EBDB20743C8800D3435C /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		866C7549208D31A100BB6809 /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
+		866C754E208D3ADA00BB6809 /* OtherProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OtherProfile.storyboard; sourceTree = "<group>"; };
 		867EAE8D2062F31900AF7F91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		868FA5AE2062B81F00BE3484 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 				868FA5B22062B84400BE3484 /* HomeViewController.swift */,
 				868FA5B12062B84400BE3484 /* PostViewController.swift */,
 				8640EBD920743BAA00D3435C /* SearchViewController.swift */,
+				866C7549208D31A100BB6809 /* OtherProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			path = "New Group1";
@@ -128,6 +133,7 @@
 				27E18F982044DD600094E3FC /* ProfileUser.storyboard */,
 				86F56877203F23970018FFBE /* Main.storyboard */,
 				86F5687C203F23970018FFBE /* LaunchScreen.storyboard */,
+				866C754E208D3ADA00BB6809 /* OtherProfile.storyboard */,
 			);
 			name = Storyboards;
 			path = "New Group2";
@@ -252,6 +258,7 @@
 			files = (
 				27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */,
 				86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */,
+				866C754F208D3ADA00BB6809 /* OtherProfile.storyboard in Resources */,
 				27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */,
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
 				27E18F992044DD600094E3FC /* ProfileUser.storyboard in Resources */,
@@ -340,6 +347,7 @@
 				86BDF399206085FE00B74C21 /* SignInViewController.swift in Sources */,
 				868FA5B42062B84400BE3484 /* PostViewController.swift in Sources */,
 				8640EBDC20743C8800D3435C /* PeopleTableViewCell.swift in Sources */,
+				866C754A208D31A100BB6809 /* OtherProfileViewController.swift in Sources */,
 				868FA5BB2062C15600BE3484 /* ProfileUserViewController.swift in Sources */,
 				868FA5B52062B84400BE3484 /* HomeViewController.swift in Sources */,
 				278538A62071A59400B1AC71 /* SettingsViewController.swift in Sources */,
