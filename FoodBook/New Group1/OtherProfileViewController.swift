@@ -52,11 +52,14 @@ class OtherProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "detailSegue" {
             let detailVC = segue.destination as! DetailViewController
             let postId = sender  as! String
             detailVC.postId = postId
+        }
+        if segue.identifier == "settingsSegue" {
+            let settingVC = segue.destination as! SettingsViewController
+            settingVC.delegate = self
         }
     }
     
@@ -90,7 +93,7 @@ extension OtherProfileViewController: UICollectionViewDataSource {
 
 extension OtherProfileViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {
-        performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil)
+        performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
 }
 
@@ -111,5 +114,11 @@ extension OtherProfileViewController: UICollectionViewDelegateFlowLayout {
 extension OtherProfileViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "detailSegue", sender: postId)
+    }
+}
+
+extension OtherProfileViewController: SettingsViewControllerDelegate {
+    func updateUserInfor() {
+        self.fetchUser()
     }
 }

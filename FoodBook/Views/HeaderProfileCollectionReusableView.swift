@@ -64,7 +64,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         }
         
         if user?.id == Api.CURRENT_USER?.uid {
-            followButton.setTitle("Edit Profile", for: UIControlState.normal)
+            followButton.setTitle("Settings", for: UIControlState.normal)
             followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
             
         } else {

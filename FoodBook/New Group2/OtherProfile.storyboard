@@ -89,7 +89,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="CBj-Wn-eCH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <state key="normal" title="Follow">
+                                                    <state key="normal" title="Loading...">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -200,11 +200,20 @@
                     <connections>
                         <outlet property="collectionView" destination="ImB-cO-Hmx" id="MfI-vM-pOz"/>
                         <segue destination="gYv-tX-K45" kind="show" identifier="detailSegue" id="sDe-jC-lb8"/>
+                        <segue destination="PIk-VG-4ON" kind="show" identifier="settingsSegue" id="iIK-kN-1Fb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIE-QS-99g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3828" y="76"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="2cz-jW-Cfg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="PIk-VG-4ON" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s52-3e-fNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4668" y="258"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="KFL-UT-AAy">
@@ -244,7 +253,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISA-zF-VLT">
-                                                    <rect key="frame" x="0.0" y="70" width="414" height="309"/>
+                                                    <rect key="frame" x="0.0" y="70" width="375" height="309"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="320" id="RhZ-td-aXd"/>
                                                     </constraints>
@@ -268,7 +277,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4j-0b-fOE">
-                                                    <rect key="frame" x="15" y="431" width="399" height="1"/>
+                                                    <rect key="frame" x="15" y="431" width="360" height="1"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.89411764709999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="2pR-0I-XIp"/>
@@ -282,13 +291,13 @@
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ph-bZ-F1i">
-                                                    <rect key="frame" x="15" y="494" width="384" height="15.666666666666686"/>
+                                                    <rect key="frame" x="15" y="494" width="345" height="15.666666666666686"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-f5-0fK">
-                                                    <rect key="frame" x="19" y="471" width="375" height="16"/>
+                                                    <rect key="frame" x="19" y="471" width="336" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

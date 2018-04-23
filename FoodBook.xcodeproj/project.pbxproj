@@ -31,6 +31,7 @@
 		868FA5BB2062C15600BE3484 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5BA2062C15600BE3484 /* ProfileUserViewController.swift */; };
 		868FA5BF2062C1F300BE3484 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */; };
 		868FA5C12062C20400BE3484 /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */; };
+		86B20BA0208D585F00480EEE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B20B9F208D585F00480EEE /* Settings.storyboard */; };
 		86BDF399206085FE00B74C21 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDF398206085FE00B74C21 /* SignInViewController.swift */; };
 		86DA6121207D4D4A006A5A85 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA6120207D4D4A006A5A85 /* Api.swift */; };
 		86F56872203F23970018FFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F56871203F23970018FFBE /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		868FA5BA2062C15600BE3484 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
 		868FA5BE2062C1F300BE3484 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		868FA5C02062C20400BE3484 /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
+		86B20B9F208D585F00480EEE /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		86BDF398206085FE00B74C21 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		86DA6120207D4D4A006A5A85 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		86F5686E203F23970018FFBE /* FoodBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				27E18F9D2044DE520094E3FC /* Home.storyboard */,
 				27E18F9A2044DDAF0094E3FC /* Post.storyboard */,
 				27E18F982044DD600094E3FC /* ProfileUser.storyboard */,
+				86B20B9F208D585F00480EEE /* Settings.storyboard */,
 				86F56877203F23970018FFBE /* Main.storyboard */,
 				86F5687C203F23970018FFBE /* LaunchScreen.storyboard */,
 				866C754E208D3ADA00BB6809 /* OtherProfile.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				27E18F9E2044DE520094E3FC /* Home.storyboard in Resources */,
 				86F5687E203F23970018FFBE /* LaunchScreen.storyboard in Resources */,
+				86B20BA0208D585F00480EEE /* Settings.storyboard in Resources */,
 				866C754F208D3ADA00BB6809 /* OtherProfile.storyboard in Resources */,
 				27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */,
 				86F5687B203F23970018FFBE /* Assets.xcassets in Resources */,
