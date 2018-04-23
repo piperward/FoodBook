@@ -50,6 +50,7 @@ class SettingsViewController: UIViewController {
         if let profileImg = self.profilePictureImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             AuthService.updateUserInfor(username: usernameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
                 self.delegate?.updateUserInfor()
+                _ = self.navigationController?.popViewController(animated: true)
             }, onError: { (errorMessage) in
                 //ProgressHUD.showError(errorMessage)
             })
