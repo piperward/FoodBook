@@ -28,8 +28,6 @@ class SearchViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = searchItem
         
         self.tableView.dataSource = self
-        
-        doSearch()
     }
     
     func doSearch() {
@@ -64,7 +62,6 @@ class SearchViewController: UIViewController {
             profileVC.delegate = self
         }
     }
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -74,7 +71,13 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        doSearch()
+        if searchText.count == 0 {
+            tableView.isHidden = true
+        }
+        else {
+            tableView.isHidden = false
+            doSearch()
+        }
     }
 }
 
