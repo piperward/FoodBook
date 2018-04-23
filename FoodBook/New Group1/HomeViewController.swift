@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
         }
         
         if segue.identifier == "Home_ProfileSegue" {
-            let profileVC = segue.destination as! ProfileUserViewController
+            let profileVC = segue.destination as! OtherProfileViewController
             let userId = sender  as! String
             profileVC.userId = userId
         }
@@ -92,6 +92,6 @@ extension HomeViewController: PostTableViewCellDelegate {
         performSegue(withIdentifier: "CommentSegue", sender: postId)
     }
     func goToProfileUserVC(userId: String) {
-        //performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
+        performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
 }

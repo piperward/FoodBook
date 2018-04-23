@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var bioTextField: UITextField!
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
     var delegate: SettingsViewControllerDelegate!
@@ -37,6 +38,7 @@ class SettingsViewController: UIViewController {
         Api.observeCurrentUser { (user) in
             self.usernameTextField.text = user.username
             self.emailTextField.text = user.email
+            self.bioTextField.text = user.bio
             if let profileUrl = URL(string: user.profileImageUrl!) {
                 let data = try? Data(contentsOf: profileUrl)
                 if let imageData = data {
@@ -48,7 +50,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onSaveButtonPressed(_ sender: Any) {
         if let profileImg = self.profilePictureImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            AuthService.updateUserInfor(username: usernameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
+            AuthService.updateUserInfor(username: usernameTextField.text!, email: emailTextField.text!, imageData: imageData, bio: bioTextField.text!, onSuccess: {
                 self.delegate?.updateUserInfor()
                 _ = self.navigationController?.popViewController(animated: true)
             }, onError: { (errorMessage) in

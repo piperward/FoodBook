@@ -207,17 +207,28 @@
                                                 <constraint firstItem="uu5-bE-vL8" firstAttribute="leading" secondItem="E43-N1-e6T" secondAttribute="leading" id="lqw-kV-Rxd"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKV-dL-xMV">
+                                            <rect key="frame" x="15" y="151" width="391" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="E43-N1-e6T" firstAttribute="leading" secondItem="HUg-j8-b7g" secondAttribute="trailing" constant="15" id="3Df-Gu-Ge4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gKV-dL-xMV" secondAttribute="trailing" id="6aM-sS-zCE"/>
                                         <constraint firstItem="HUg-j8-b7g" firstAttribute="leading" secondItem="AVc-yl-1h7" secondAttribute="leading" constant="15" id="Ako-Ze-xkE"/>
+                                        <constraint firstItem="gKV-dL-xMV" firstAttribute="bottom" secondItem="AVc-yl-1h7" secondAttribute="bottomMargin" id="E5F-nh-RtY"/>
+                                        <constraint firstItem="gKV-dL-xMV" firstAttribute="leading" secondItem="AVc-yl-1h7" secondAttribute="leadingMargin" constant="7" id="JIR-fq-TYe"/>
                                         <constraint firstItem="3pD-hh-hTu" firstAttribute="leading" secondItem="HUg-j8-b7g" secondAttribute="leading" id="QFV-ty-KKA"/>
                                         <constraint firstItem="E43-N1-e6T" firstAttribute="top" secondItem="AVc-yl-1h7" secondAttribute="top" constant="15" id="TjT-Ow-caY"/>
+                                        <constraint firstItem="gKV-dL-xMV" firstAttribute="top" secondItem="3pD-hh-hTu" secondAttribute="bottom" constant="3" id="XdM-96-vvy"/>
                                         <constraint firstItem="HUg-j8-b7g" firstAttribute="top" secondItem="AVc-yl-1h7" secondAttribute="top" constant="15" id="j5k-as-tmq"/>
                                         <constraint firstAttribute="trailing" secondItem="E43-N1-e6T" secondAttribute="trailing" constant="15" id="tOl-x3-QS3"/>
                                         <constraint firstItem="3pD-hh-hTu" firstAttribute="top" secondItem="HUg-j8-b7g" secondAttribute="bottom" constant="15" id="xCj-Xe-tK9"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="bioLabel" destination="gKV-dL-xMV" id="d8q-ci-SS0"/>
                                         <outlet property="followButton" destination="uu5-bE-vL8" id="A5E-6g-cV9"/>
                                         <outlet property="followersCountLabel" destination="s3m-Uh-Zec" id="0MZ-qb-IKn"/>
                                         <outlet property="followingCountLabel" destination="xVu-Dj-cgP" id="09w-OQ-Gmy"/>
