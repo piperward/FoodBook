@@ -129,6 +129,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bioTextField" destination="Vo2-Hx-fct" id="aXm-yT-7RL"/>
                         <outlet property="emailTextField" destination="bqC-ul-y7W" id="LPQ-YX-Hzb"/>
                         <outlet property="profilePictureImageView" destination="Vl9-75-bDR" id="FzH-oV-tSi"/>
                         <outlet property="usernameTextField" destination="PPi-fW-9Xt" id="Smb-2e-GKf"/>

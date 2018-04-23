@@ -13,6 +13,7 @@ class User {
     var profileImageUrl: String?
     var username: String?
     var id: String?
+    var bio: String?
     var isFollowing: Bool?
     
     static func transformUser(dict: [String: Any], key: String) -> User {
@@ -22,6 +23,7 @@ class User {
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String
         user.id = key
+        user.bio = dict["bio"] as? String
         return user
     }
 }
