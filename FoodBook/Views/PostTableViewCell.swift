@@ -19,7 +19,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
@@ -57,23 +56,6 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
-        
-        self.updateLike(post: self.post!)
-    }
-    
-    func updateLike(post: Post) {
-        
-        let imageName = post.likes == nil || !post.isLiked! ? "like" : "likeSelected"
-        likeImageView.image = UIImage(named: imageName)
-        guard let count = post.likeCount else {
-            return
-        }
-        if count != 0 {
-            likeCountButton.setTitle("\(count) likes", for: UIControlState.normal)
-        } else {
-            likeCountButton.setTitle("Be the first like this", for: UIControlState.normal)
-        }
-        
     }
     
     func setupUserInfo() {
@@ -101,10 +83,6 @@ class PostTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
         commentImageView.addGestureRecognizer(tapGesture)
         commentImageView.isUserInteractionEnabled = true
-        
-        let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
-        likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
-        likeImageView.isUserInteractionEnabled = true
         
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
