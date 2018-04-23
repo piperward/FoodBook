@@ -126,11 +126,20 @@
                     <connections>
                         <outlet property="tableView" destination="Yd9-Hj-Fjd" id="Y75-HT-Nc1"/>
                         <segue destination="xb6-Io-M53" kind="show" identifier="CommentSegue" id="7KW-QE-ijD"/>
+                        <segue destination="4wQ-k4-Zqd" kind="show" identifier="Home_ProfileSegue" id="ygU-Od-ohE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pqb-5x-5Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2781.1594202898555" y="268.20652173913044"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="deU-wV-5aL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OtherProfile" referencedIdentifier="ProfileUserViewController" id="4wQ-k4-Zqd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sz7-gy-sKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3537" y="-2"/>
         </scene>
         <!--Home-->
         <scene sceneID="hSa-SH-e5D">
@@ -305,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoF-6R-aug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3513" y="268"/>
+            <point key="canvasLocation" x="3552" y="753"/>
         </scene>
     </scenes>
     <resources>

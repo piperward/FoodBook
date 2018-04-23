@@ -72,7 +72,7 @@ class SignUpViewController: UIViewController {
     //ProgressHUD.show("Waiting...", interaction: false)
     
     if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-    AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+        AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, bio: "", onSuccess: {
                 //ProgressHUD.showSuccess("Success")
                 self.dismissScene()
             }, onError: { (errorString) in

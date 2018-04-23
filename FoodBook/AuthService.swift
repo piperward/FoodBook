@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class AuthService {
-    static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+    static func signUp(username: String, email: String, password: String, imageData: Data, bio: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 onError(error!.localizedDescription)
@@ -27,7 +27,7 @@ class AuthService {
                 }
                 let profileImageUrl = metadata?.downloadURL()?.absoluteString
 
-                self.setUserInformation(profileImageUrl: profileImageUrl!, username: username, email: email, uid: uid!, bio: "", onSuccess: onSuccess)
+                self.setUserInformation(profileImageUrl: profileImageUrl!, username: username, email: email, uid: uid!, bio: bio, onSuccess: onSuccess)
             
             })
         })
