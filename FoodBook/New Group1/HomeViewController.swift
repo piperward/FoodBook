@@ -57,6 +57,12 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CommentSegue" {
+            let commentVC = segue.destination as! CommentViewController
+            let postId = sender  as! String
+            commentVC.postId = postId
+        }
+        
         if segue.identifier == "Home_ProfileSegue" {
             let profileVC = segue.destination as! ProfileUserViewController
             let userId = sender  as! String
@@ -83,7 +89,7 @@ extension HomeViewController: UITableViewDataSource {
 //TODO create these segues
 extension HomeViewController: PostTableViewCellDelegate {
     func goToCommentVC(postId: String) {
-        //performSegue(withIdentifier: "CommentSegue", sender: postId)
+        performSegue(withIdentifier: "CommentSegue", sender: postId)
     }
     func goToProfileUserVC(userId: String) {
         //performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)

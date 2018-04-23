@@ -15,6 +15,8 @@ struct Api {
     static var REF_FOLLOWERS = Database.database().reference().child("followers")
     static var REF_FOLLOWING = Database.database().reference().child("following")
     static var REF_MYPOSTS = Database.database().reference().child("myPosts")
+    static var REF_COMMENTS = Database.database().reference().child("comments")
+    static var REF_POST_COMMENTS = Database.database().reference().child("post-comments")
 
     
     static var CURRENT_USER = Auth.auth().currentUser
@@ -205,5 +207,16 @@ struct Api {
             completion(count)
         })
         
+    }
+    
+    // Comment API
+    static func observeComments(withPostId id: String, completion: @escaping (Comment) -> Void) {
+        Api.REF_COMMENTS.child(id).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let newComment = Comment.transformComment(dict: dict)
+                completion(newComment)
+            }
+        })
     }
 }

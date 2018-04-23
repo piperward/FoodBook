@@ -98,6 +98,10 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         nameLabel.text = ""
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
+        commentImageView.addGestureRecognizer(tapGesture)
+        commentImageView.isUserInteractionEnabled = true
+        
         let tapGestureForLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
         likeImageView.isUserInteractionEnabled = true
@@ -121,6 +125,13 @@ class PostTableViewCell: UITableViewCell {
 //            self.post?.isLiked = post.isLiked
 //            self.post?.likeCount = post.likeCount
 //        })
+    }
+    
+    @objc func commentImageView_TouchUpInside() {
+        print("commentImageView_TouchUpInside")
+        if let id = post?.id {
+            delegate?.goToCommentVC(postId: id)
+        }
     }
     
     override func prepareForReuse() {

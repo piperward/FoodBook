@@ -68,6 +68,20 @@ class DetailViewController: UIViewController {
         }))
         self.present(alert, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail_CommentVC" {
+            let commentVC = segue.destination as! CommentViewController
+            let postId = sender  as! String
+            commentVC.postId = postId
+        }
+        
+//        if segue.identifier == "Detail_ProfileUserSegue" {
+//            let profileVC = segue.destination as! ProfileUserViewController
+//            let userId = sender  as! String
+//            profileVC.userId = userId
+//        }
+    }
 
 }
 
@@ -87,7 +101,7 @@ extension DetailViewController: UITableViewDataSource {
 
 extension DetailViewController: PostTableViewCellDelegate {
     func goToCommentVC(postId: String) {
-        //performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
+        performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }
     func goToProfileUserVC(userId: String) {
         //performSegue(withIdentifier: "Detail_ProfileUserSegue", sender: userId)

@@ -402,11 +402,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="4Ac-2A-rt8" id="xWA-UF-QLG"/>
+                        <segue destination="wDA-jo-BNV" kind="show" identifier="Detail_CommentVC" id="rMi-ZE-DAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b20-1K-TD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3827.5362318840585" y="894.29347826086962"/>
+        </scene>
+        <!--CommentViewController-->
+        <scene sceneID="aJz-rq-esR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="CommentViewController" id="wDA-jo-BNV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibD-ud-V5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4594" y="834"/>
         </scene>
         <!--Settings-->
         <scene sceneID="edE-lo-Msf">

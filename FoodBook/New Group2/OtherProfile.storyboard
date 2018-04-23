@@ -369,11 +369,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="3xs-XC-aOP" id="KI5-U1-nwC"/>
+                        <segue destination="XcH-Qj-mou" kind="show" identifier="Detail_CommentVC" id="HQX-r0-VO8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zci-Dx-aou" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3828" y="895"/>
+        </scene>
+        <!--CommentViewController-->
+        <scene sceneID="c3h-aK-RXH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="CommentViewController" id="XcH-Qj-mou" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="McH-I5-u59" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4488" y="830"/>
         </scene>
     </scenes>
     <resources>
