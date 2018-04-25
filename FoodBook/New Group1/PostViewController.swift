@@ -85,6 +85,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if ingredients.count == 0 {
             ingredientDetails = "No ingredients specified"
         } else {
+            ingredientDetails.removeAll()
             for ingredient in ingredients {
                 ingredientDetails.append(ingredient + "\n")
             }
