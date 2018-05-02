@@ -43,6 +43,10 @@ class PostTableViewCell: UITableViewCell {
     func updateView() {
         ingredientsLabel.text = post?.ingredients
         captionLabel.text = post?.caption
+        if State.bold == true {
+            ingredientsLabel.font = UIFont.boldSystemFont(ofSize: ingredientsLabel.font.pointSize)
+            captionLabel.font = UIFont.boldSystemFont(ofSize: captionLabel.font.pointSize)
+        }
         if let ratio = post?.ratio {
             heightConstraintPhoto.constant = UIScreen.main.bounds.width / ratio
             layoutIfNeeded()

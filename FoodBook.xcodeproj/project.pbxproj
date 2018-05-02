@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2705685220999270000FFC85 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705685120999270000FFC85 /* State.swift */; };
 		27070D0C2087014F002AD1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27070D0B2087014F002AD1AE /* DetailViewController.swift */; };
 		27305EF7206EE2FA00B2B995 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */; };
 		277977CF208D541900F5788E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277977CE208D541900F5788E /* CommentViewController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		09AFD7025CB79A0F7FA763CE /* Pods-FoodBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodBook/Pods-FoodBook.release.xcconfig"; sourceTree = "<group>"; };
+		2705685120999270000FFC85 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		27070D0B2087014F002AD1AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "FoodBook/New Group1/DetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		27305EF6206EE2FA00B2B995 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		277977CE208D541900F5788E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentViewController.swift; path = "FoodBook/New Group1/CommentViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -125,6 +127,7 @@
 				8686F1D4206EEB950046BC82 /* ResetPasswordViewController.swift */,
 				861F8CCF2061C7AB00C4D471 /* SignUpViewController.swift */,
 				278538A52071A59400B1AC71 /* SettingsViewController.swift */,
+				2705685120999270000FFC85 /* State.swift */,
 				868FA5BA2062C15600BE3484 /* ProfileUserViewController.swift */,
 				868FA5B22062B84400BE3484 /* HomeViewController.swift */,
 				868FA5B12062B84400BE3484 /* PostViewController.swift */,
@@ -380,6 +383,7 @@
 				86057C57207FBBB900D0BF5A /* AuthService.swift in Sources */,
 				86DA6121207D4D4A006A5A85 /* Api.swift in Sources */,
 				8686F1D5206EEB950046BC82 /* ResetPasswordViewController.swift in Sources */,
+				2705685220999270000FFC85 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,16 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
     @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var nightModeSwitch: UISwitch!
+    @IBOutlet weak var boldSwitch: UISwitch!
+    
+    // UILabels
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nightModeLabel: UILabel!
+    @IBOutlet weak var boldFontLabel: UILabel!
+    
     
     var delegate: SettingsViewControllerDelegate!
     
@@ -45,6 +55,32 @@ class SettingsViewController: UIViewController {
                     self.profilePictureImageView.image = UIImage(data: imageData)
                 }
             }
+        }
+    }
+    
+    @IBAction func nightModeSwitchTapped(_ sender: Any) {
+        if nightModeSwitch.isOn {
+            State.nightMode = true
+        } else {
+            State.nightMode = false
+        }
+    }
+    
+    @IBAction func boldSwitchTapped(_ sender: Any) {
+        if boldSwitch.isOn {
+            State.bold = true
+            usernameLabel.font = UIFont.boldSystemFont(ofSize: usernameLabel.font.pointSize)
+            bioLabel.font = UIFont.boldSystemFont(ofSize: bioLabel.font.pointSize)
+            emailLabel.font = UIFont.boldSystemFont(ofSize: emailLabel.font.pointSize)
+            nightModeLabel.font = UIFont.boldSystemFont(ofSize: nightModeLabel.font.pointSize)
+            boldFontLabel.font = UIFont.boldSystemFont(ofSize: boldFontLabel.font.pointSize)
+        } else {
+            State.bold = false
+            usernameLabel.font = UIFont.systemFont(ofSize: usernameLabel.font.pointSize)
+            bioLabel.font = UIFont.systemFont(ofSize: bioLabel.font.pointSize)
+            emailLabel.font = UIFont.systemFont(ofSize: emailLabel.font.pointSize)
+            nightModeLabel.font = UIFont.systemFont(ofSize: nightModeLabel.font.pointSize)
+            boldFontLabel.font = UIFont.systemFont(ofSize: boldFontLabel.font.pointSize)
         }
     }
     
@@ -112,3 +148,4 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         dismiss(animated: true, completion: nil)
     }
 }
+
