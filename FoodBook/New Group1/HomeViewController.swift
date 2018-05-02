@@ -26,6 +26,10 @@ class HomeViewController: UIViewController {
         loadPosts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func loadPosts() {
         if let currentUser = Auth.auth().currentUser {
             Api.observeFeed(withId: currentUser.uid) { (post) in

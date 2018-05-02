@@ -47,6 +47,8 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         self.bioLabel.text = user!.bio
         if State.bold == true {
             self.bioLabel.font = UIFont.boldSystemFont(ofSize: self.bioLabel.font.pointSize)
+        } else {
+            self.bioLabel.font = UIFont.systemFont(ofSize: self.bioLabel.font.pointSize)
         }
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)

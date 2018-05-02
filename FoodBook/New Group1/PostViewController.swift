@@ -33,6 +33,15 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         recipeTableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if State.bold == true {
+            postTextView.font = UIFont.boldSystemFont(ofSize: (postTextView.font?.pointSize)!)
+        } else {
+            postTextView.font = UIFont.systemFont(ofSize: (postTextView.font?.pointSize)!)
+        }
+        recipeTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -205,6 +214,12 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         
         let row = indexPath.row
         cell.textLabel?.text = ingredients[row]
+        
+        if State.bold == true {
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
+        } else {
+            cell.textLabel?.font = UIFont.systemFont(ofSize: (cell.textLabel?.font.pointSize)!)
+        }
         
         return cell
     }

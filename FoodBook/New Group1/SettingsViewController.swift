@@ -38,6 +38,21 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         fetchCurrentUser()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if State.nightMode == true {
+            nightModeSwitch.setOn(true, animated: false)
+        } else {
+            nightModeSwitch.setOn(false, animated: false)
+        }
+        if State.bold == true {
+            boldSwitch.setOn(true, animated: false)
+            changeFont(toBold: true)
+        } else {
+            boldSwitch.setOn(false, animated: false)
+            changeFont(toBold: false)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,13 +84,21 @@ class SettingsViewController: UIViewController {
     @IBAction func boldSwitchTapped(_ sender: Any) {
         if boldSwitch.isOn {
             State.bold = true
+            changeFont(toBold: true)
+        } else {
+            State.bold = false
+            changeFont(toBold: false)
+        }
+    }
+    
+    func changeFont(toBold: Bool) {
+        if toBold == true {
             usernameLabel.font = UIFont.boldSystemFont(ofSize: usernameLabel.font.pointSize)
             bioLabel.font = UIFont.boldSystemFont(ofSize: bioLabel.font.pointSize)
             emailLabel.font = UIFont.boldSystemFont(ofSize: emailLabel.font.pointSize)
             nightModeLabel.font = UIFont.boldSystemFont(ofSize: nightModeLabel.font.pointSize)
             boldFontLabel.font = UIFont.boldSystemFont(ofSize: boldFontLabel.font.pointSize)
         } else {
-            State.bold = false
             usernameLabel.font = UIFont.systemFont(ofSize: usernameLabel.font.pointSize)
             bioLabel.font = UIFont.systemFont(ofSize: bioLabel.font.pointSize)
             emailLabel.font = UIFont.systemFont(ofSize: emailLabel.font.pointSize)
