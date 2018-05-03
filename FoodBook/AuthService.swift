@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
+//This class is used for authorizing accounts during user profile creation
+//Also updates user information 
 class AuthService {
     static func signUp(username: String, email: String, password: String, imageData: Data, bio: String, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
