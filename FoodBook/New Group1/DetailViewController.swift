@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NightNight
 
 //protocol for refreshing user posts in ProfileUserViewController
 protocol DetailViewControllerDelegate {
@@ -28,6 +29,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPost()
+        
+        view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
+        navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
     }
     
     func loadPost() {

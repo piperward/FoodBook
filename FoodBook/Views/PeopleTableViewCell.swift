@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NightNight
 
 protocol PeopleTableViewCellDelegate {
     func goToProfilVC(userId: String)
@@ -26,7 +27,16 @@ class PeopleTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        nameLabel.text = user?.username
+        //Creating attributed strings for nightmode
+        let name = NSMutableAttributedString(string: (user?.username)!)
+        name.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                                  range: NSRange(location: 0, length: name.string.count))
+        nameLabel.attributedText = name
+        
+        //Nightmode setup
+        self.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             let data = try? Data(contentsOf: photoUrl!)
@@ -34,55 +44,7 @@ class PeopleTableViewCell: UITableViewCell {
                 self.profileImage.image = UIImage(data: imageData)
             }
         }
-        
-        
-//        if user!.isFollowing! {
-//            configureUnFollowButton()
-//        } else {
-//            configureFollowButton()
-//        }
-        
     }
-    
-//    func configureFollowButton() {
-//        followButton.layer.borderWidth = 1
-//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-//        followButton.layer.cornerRadius = 5
-//        followButton.clipsToBounds = true
-//
-//        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-//        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
-//        followButton.setTitle("Follow", for: UIControlState.normal)
-//        followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
-//    }
-//
-//    func configureUnFollowButton() {
-//        followButton.layer.borderWidth = 1
-//        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
-//        followButton.layer.cornerRadius = 5
-//        followButton.clipsToBounds = true
-//
-//        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-//        followButton.backgroundColor = UIColor.clear
-//        followButton.setTitle("Following", for: UIControlState.normal)
-//        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
-//    }
-//
-//    func followAction() {
-//        if user!.isFollowing! == false {
-//            Api.Follow.followAction(withUser: user!.id!)
-//            configureUnFollowButton()
-//            user!.isFollowing! = true
-//        }
-//    }
-//
-//    func unFollowAction() {
-//        if user!.isFollowing! == true {
-//            Api.Follow.unFollowAction(withUser: user!.id!)
-//            configureFollowButton()
-//            user!.isFollowing! = false
-//        }
-//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

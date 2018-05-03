@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NightNight
 
 class ProfileUserViewController: UIViewController {
     
@@ -29,6 +30,15 @@ class ProfileUserViewController: UIViewController {
         
         fetchUser()
         fetchMyPosts()
+        
+        //Nightmode setup
+        view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        collectionView.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
+        navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
+
     }
     
     func fetchUser() {

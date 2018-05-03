@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NightNight
 
 class CommentViewController: UIViewController {
     
@@ -30,6 +31,9 @@ class CommentViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        view.mixedBackgroundColor = MixedColor(normal: 0xd3d3d3, night: 0x222222)
+        commentTextField.backgroundColor = UIColor.gray
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

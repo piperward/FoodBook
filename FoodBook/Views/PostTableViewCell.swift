@@ -42,19 +42,30 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        let ingredients = NSMutableAttributedString(string: (post?.ingredients)!)
-        let caption = NSMutableAttributedString(string: (post?.caption)!)
-        ingredients.setMixedAttributes([NNForegroundColorAttributeName:
-            MixedColor(normal: 0x000000, night: 0xfafafa)],
-                                       range: NSRange(location: 0, length: ingredients.string.count))
-        caption.setMixedAttributes([NNForegroundColorAttributeName:
-            MixedColor(normal: 0x000000, night: 0xfafafa)],
-                                   range: NSRange(location: 0, length: caption.string.count))
+        //Nightmode setup
+        self.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
         
+        //Creating attributed strings for nightmode
+        if let ingredients = post?.ingredients {
+            let attributedIngredients = NSMutableAttributedString(string: ingredients)
+            
+            attributedIngredients.setMixedAttributes([NNForegroundColorAttributeName:
+                MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                                     range: NSRange(location: 0, length: attributedIngredients.string.count))
+            
+            ingredientsLabel.attributedText = attributedIngredients
+        }
+        if let caption = post?.caption {
+            let attributedCaption = NSMutableAttributedString(string: caption)
+            
+            attributedCaption.setMixedAttributes([NNForegroundColorAttributeName:
+                MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                       range: NSRange(location: 0, length: attributedCaption.string.count))
+            
+            captionLabel.attributedText = attributedCaption
+        }
+
         
-        
-        ingredientsLabel.attributedText = ingredients
-        captionLabel.attributedText = caption
         if State.bold == true {
             ingredientsLabel.font = UIFont.boldSystemFont(ofSize: ingredientsLabel.font.pointSize)
             captionLabel.font = UIFont.boldSystemFont(ofSize: captionLabel.font.pointSize)
@@ -62,6 +73,7 @@ class PostTableViewCell: UITableViewCell {
             ingredientsLabel.font = UIFont.systemFont(ofSize: ingredientsLabel.font.pointSize)
             captionLabel.font = UIFont.systemFont(ofSize: captionLabel.font.pointSize)
         }
+        
         if let ratio = post?.ratio {
             heightConstraintPhoto.constant = UIScreen.main.bounds.width / ratio
             layoutIfNeeded()
@@ -75,19 +87,18 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
-        
-        //Nightmode
-        self.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
-
     }
     
     func setupUserInfo() {
-        let name = NSMutableAttributedString(string: (user?.username)!)
-        name.setMixedAttributes([NNForegroundColorAttributeName:
-            MixedColor(normal: 0x000000, night: 0xfafafa)],
-                                range: NSRange(location: 0, length: name.string.count))
+        if let name = (user?.username) {
+            let attributedName = NSMutableAttributedString(string: name)
+            attributedName.setMixedAttributes([NNForegroundColorAttributeName:
+                MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                    range: NSRange(location: 0, length: attributedName.string.count))
+            
+            nameLabel.attributedText = attributedName
+        }
         
-        nameLabel.attributedText = name
         if let photoUrlString = user?.profileImageUrl {
             if let photoUrl = URL(string: photoUrlString) {
                 let data = try? Data(contentsOf: photoUrl)

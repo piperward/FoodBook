@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         tableView.allowsSelection = false
         loadPosts()
         
-        //Nightmode
+        //Nightmode setup
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
         tableView.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)

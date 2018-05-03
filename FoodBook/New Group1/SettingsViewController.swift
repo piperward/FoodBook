@@ -38,6 +38,43 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         fetchCurrentUser()
+        
+        //Nightmode setup
+        view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
+        navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
+        
+        let username = NSMutableAttributedString(string: "Username")
+        username.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                    range: NSRange(location: 0, length: username.string.count))
+        self.usernameLabel.attributedText = username
+        
+        let bio = NSMutableAttributedString(string: "Bio")
+        bio.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                               range: NSRange(location: 0, length: bio.string.count))
+        self.bioLabel.attributedText = bio
+        
+        let email = NSMutableAttributedString(string: "Email")
+        email.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                 range: NSRange(location: 0, length: email.string.count))
+        self.emailLabel.attributedText = email
+        
+        let nightMode = NSMutableAttributedString(string: "Night Mode")
+        nightMode.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                 range: NSRange(location: 0, length: nightMode.string.count))
+        self.nightModeLabel.attributedText = nightMode
+        
+        let boldFont = NSMutableAttributedString(string: "Bold Text")
+        boldFont.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                 range: NSRange(location: 0, length: boldFont.string.count))
+        self.boldFontLabel.attributedText = boldFont
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NightNight
 
 protocol HeaderProfileCollectionReusableViewDelegate {
     func updateFollowButton(forUser user: User)
@@ -43,8 +44,6 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     }
     
     func updateView() {
-        self.nameLabel.text = user!.username
-        self.bioLabel.text = user!.bio
         if State.bold == true {
             self.bioLabel.font = UIFont.boldSystemFont(ofSize: self.bioLabel.font.pointSize)
         } else {
@@ -77,6 +76,22 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         } else {
             updateStateFollowButton()
         }
+        
+        //Nightmode setup
+        self.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        
+        //Creating attributed strings for nightmode
+        let name = NSMutableAttributedString(string: (user?.username)!)
+        let bio = NSMutableAttributedString(string: (user?.bio)!)
+        name.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                       range: NSRange(location: 0, length: name.string.count))
+        bio.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                   range: NSRange(location: 0, length: bio.string.count))
+        
+        self.nameLabel.attributedText = name
+        self.bioLabel.attributedText = bio
     }
     
     func clear() {

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+import NightNight
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, IngredientDelegate {
     
@@ -31,6 +32,14 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
+        recipeTableView.allowsSelection = false
+        
+        //Nightmode setup
+        view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        recipeTableView.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -211,15 +220,21 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath as IndexPath)
-        
         let row = indexPath.row
-        cell.textLabel?.text = ingredients[row]
         
         if State.bold == true {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
         } else {
             cell.textLabel?.font = UIFont.systemFont(ofSize: (cell.textLabel?.font.pointSize)!)
         }
+        
+        //Nightmode setup
+        cell.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        let text = NSMutableAttributedString(string: ingredients[row])
+        text.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                range: NSRange(location: 0, length: text.string.count))
+        cell.textLabel?.attributedText = text
         
         return cell
     }

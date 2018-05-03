@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NightNight
 
 class SearchViewController: UIViewController {
     var REF_USERS = Database.database().reference().child("users")
@@ -28,6 +29,17 @@ class SearchViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = searchItem
         
         self.tableView.dataSource = self
+        
+        self.searchBar.backgroundColor = UIColor.gray
+        
+        //Nightmode
+        view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
+        
+        tableView.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        
     }
     
     func doSearch() {

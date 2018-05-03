@@ -11,6 +11,5 @@ target 'FoodBook' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'
-  pod 'NightNight', :path => '.'
-
+  pod 'NightNight'
 end
