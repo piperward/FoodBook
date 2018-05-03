@@ -23,7 +23,6 @@ class ProfileUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -77,11 +76,13 @@ class ProfileUserViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Bring user to settings view controller
         if segue.identifier == "settingsSegue" {
             let settingVC = segue.destination as! SettingsViewController
             settingVC.delegate = self
         }
         
+        //Bring user to detail view controller
         if segue.identifier == "detailSegue" {
             let detailVC = segue.destination as! DetailViewController
             detailVC.delegate = self
@@ -92,6 +93,7 @@ class ProfileUserViewController: UIViewController {
     }
 }
 
+//Dictates the layout of the collection view
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
@@ -137,19 +139,21 @@ extension ProfileUserViewController: SettingsViewControllerDelegate {
     }
 }
 
-//TODO create segue
+//Brings user to detail view controller
 extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "detailSegue", sender: postId)
     }
 }
 
+//This is used to immediately remove deleted posts from the collection view
 extension ProfileUserViewController: DetailViewControllerDelegate {
     func removePostFromDataSource(postId: String) {
         posts = posts.filter({$0.id != postId})
     }
 }
 
+//Brings user to settings view controller
 extension ProfileUserViewController: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
     func goToSettingVC() {
         performSegue(withIdentifier: "settingsSegue", sender: nil)

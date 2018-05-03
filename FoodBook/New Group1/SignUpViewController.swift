@@ -28,6 +28,7 @@ class SignUpViewController: UIViewController {
         //Hides text as it is typed
         passwordTextField.isSecureTextEntry = true
         
+        //Set user profile picture when user taps on image
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         profilePictureImageView.addGestureRecognizer(tapGesture)
         profilePictureImageView.isUserInteractionEnabled = true
@@ -38,6 +39,7 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Present picture picker
     @objc func handleSelectProfileImageView() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -47,36 +49,11 @@ class SignUpViewController: UIViewController {
     //MARK: Actions
     
 @IBAction func signUp(_ sender: Any) {
-    //        let username = usernameTextField.text
-    //        let email = emailTextField.text
-    //        let password = passwordTextField.text
-    //
-    //        // If no field is empty, create a new user with Firebase
-    //        if username! != "" && email! != "" && password! != "" {
-    //            Auth.auth().createUser(withEmail: email!, password: password!) { user, error in
-    //                if error == nil {
-    //                    Auth.auth().signIn(withEmail: email!, password: password!)
-    //
-    //                    let uid = user?.uid
-    //                    self.setUserInfomation(username: username!, email: email!, uid: uid!)
-    //
-    //                    self.dismissScene()
-    //                }
-    //                else {
-    //                    print("Error: " + error.debugDescription)
-    //                }
-    //            }
-    //        }
-    
-    //        view.endEditing(true)
-    //ProgressHUD.show("Waiting...", interaction: false)
-    
+    //Can only sign up if all forms are filled out
     if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
         AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, bio: "", onSuccess: {
-                //ProgressHUD.showSuccess("Success")
                 self.dismissScene()
             }, onError: { (errorString) in
-                //ProgressHUD.showError(errorString!)
                 print(errorString!)
             })
         }
@@ -85,7 +62,6 @@ class SignUpViewController: UIViewController {
     @IBAction func signIn(_ sender: Any) {
         dismissScene()
     }
-    
 
     
     // Keyboard dismissal methods

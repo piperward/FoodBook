@@ -35,6 +35,7 @@ class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         measurementPicker.dataSource = self
         measurementPicker.delegate = self
         
+        //Setting up picker
         for i in 1...10 {
             wholeNumberChoices.append("\(i)")
         }
@@ -49,6 +50,7 @@ class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
+    //Send ingredient details to post view controller
     func sendIngredientDetails() {
         var ingredient = ""
         if selectedWholeNumber != "" {
@@ -64,6 +66,7 @@ class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         delegate.getIngredientDetails(ingredientToReceive: ingredient)
     }
     
+    //Sends ingredient details and brings user back to previoius controller
     @IBAction func onSaveButtonPressed(_ sender: Any) {
         if nameTextField.text! != "" {
             sendIngredientDetails()

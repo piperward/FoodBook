@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
         tableView.dataSource = self
         loadPost()
         
+        //Nightmode setup
         view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
@@ -37,6 +38,7 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
     }
     
+    //Fetch post from server and load it into the controller
     func loadPost() {
         Api.observePost(withId: postId) { (post) in
             guard let postUid = post.uid else {
@@ -82,12 +84,6 @@ class DetailViewController: UIViewController {
             let postId = sender  as! String
             commentVC.postId = postId
         }
-        
-//        if segue.identifier == "Detail_ProfileUserSegue" {
-//            let profileVC = segue.destination as! ProfileUserViewController
-//            let userId = sender  as! String
-//            profileVC.userId = userId
-//        }
     }
 
 }
@@ -107,10 +103,10 @@ extension DetailViewController: UITableViewDataSource {
 }
 
 extension DetailViewController: PostTableViewCellDelegate {
+    //Navigate user to comment view controllers
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }
     func goToProfileUserVC(userId: String) {
-        //performSegue(withIdentifier: "Detail_ProfileUserSegue", sender: userId)
     }
 }

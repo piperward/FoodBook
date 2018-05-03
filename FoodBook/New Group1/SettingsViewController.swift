@@ -77,6 +77,7 @@ class SettingsViewController: UIViewController {
         self.boldFontLabel.attributedText = boldFont
     }
     
+    //Prepares switches based on the appropiate State
     override func viewWillAppear(_ animated: Bool) {
         if State.nightMode == true {
             nightModeSwitch.setOn(true, animated: false)
@@ -111,6 +112,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //Change nightMode state when switch is tapped
     @IBAction func nightModeSwitchTapped(_ sender: Any) {
         if nightModeSwitch.isOn {
             State.nightMode = true
@@ -121,6 +123,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //Change bold state when switch is tapped
     @IBAction func boldSwitchTapped(_ sender: Any) {
         if boldSwitch.isOn {
             State.bold = true
@@ -131,6 +134,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //Change text to bold when switch is tapped
     func changeFont(toBold: Bool) {
         if toBold == true {
             usernameLabel.font = UIFont.boldSystemFont(ofSize: usernameLabel.font.pointSize)
@@ -158,6 +162,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //Change profile picture when image is tapped
     @IBAction func onChangeProfilePicturePressed(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -189,19 +194,9 @@ class SettingsViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+//Used for picking new profile picture
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")

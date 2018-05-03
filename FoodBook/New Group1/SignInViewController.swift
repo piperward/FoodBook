@@ -30,9 +30,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         //Hides text as it is typed
         passwordTextField.isSecureTextEntry = true
         
+        //Google sign in
         GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().signIn()
         
+        //Skips this controller if user is already signed in
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
@@ -64,8 +65,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         let email = emailTextField.text
         let password = passwordTextField.text
         
+        //Ensure email and password are valid
         if email! == "" || password! == "" {
-            // FIXME
             print("invalid - blank text field")
             self.invalidLabel.text! = "Invalid information"
         } else {

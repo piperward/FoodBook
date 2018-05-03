@@ -13,7 +13,9 @@ class CommentViewController: UIViewController {
     
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    //this table view is for displaying all of the post's coments
     @IBOutlet weak var tableView: UITableView!
+    //this constraint keeps the commentTextField in view even when the keyboard is up
     @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
     
     var postId: String!
@@ -36,10 +38,12 @@ class CommentViewController: UIViewController {
         commentTextField.backgroundColor = UIColor.gray
     }
     
+    //End editing when the user touches outside the text field
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
+    //Text field moves as the keyboard appears
     @objc func keyboardWillShow(_ notification: NSNotification) {
         print(notification)
         let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
@@ -49,6 +53,8 @@ class CommentViewController: UIViewController {
             
         }
     }
+    
+    //Text field moves as the keyboard disappears
     @objc func keyboardWillHide(_ notification: NSNotification) {
         UIView.animate(withDuration: 0.3) {
             self.constraintToBottom.constant = 0
@@ -57,7 +63,7 @@ class CommentViewController: UIViewController {
         }
     }
     
-    
+    //Pull comments from server and load them into the tableview
     func loadComments() {
         Api.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
             snapshot in
@@ -72,7 +78,6 @@ class CommentViewController: UIViewController {
     }
     
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
-        
         Api.observeUser(withId: uid, completion: {
             user in
             self.users.append(user)
@@ -80,6 +85,7 @@ class CommentViewController: UIViewController {
         })
     }
     
+    //Ensures that the send button is only operational when there is text to send
     func handleTextField() {
         commentTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
@@ -104,7 +110,7 @@ class CommentViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    
+    //Upload comment to server when send button is tapped
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
         
         let commentsReference = Api.REF_COMMENTS
@@ -117,13 +123,11 @@ class CommentViewController: UIViewController {
         newCommentReference.setValue(["uid": currentUserId, "commentText": commentTextField.text!], withCompletionBlock: {
             (error, ref) in
             if error != nil {
-                //ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             let postCommentRef = Api.REF_POST_COMMENTS.child(self.postId).child(newCommentId)
             postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
-                    //ProgressHUD.showError(error!.localizedDescription)
                     return
                 }
             })
@@ -132,6 +136,7 @@ class CommentViewController: UIViewController {
         })
     }
     
+    //Reset the view after a comment has been sent
     func empty() {
         self.commentTextField.text = ""
         self.sendButton.isEnabled = false

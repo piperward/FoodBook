@@ -8,6 +8,7 @@
 
 import Foundation
 
+//This keeps track of the the state of our settings
 struct State {
     
     static var nightMode = false
