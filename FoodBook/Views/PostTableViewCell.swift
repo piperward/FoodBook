@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import NightNight
 
 protocol PostTableViewCellDelegate {
     func goToCommentVC(postId: String)
@@ -41,8 +42,19 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        ingredientsLabel.text = post?.ingredients
-        captionLabel.text = post?.caption
+        let ingredients = NSMutableAttributedString(string: (post?.ingredients)!)
+        let caption = NSMutableAttributedString(string: (post?.caption)!)
+        ingredients.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                       range: NSRange(location: 0, length: ingredients.string.count))
+        caption.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                   range: NSRange(location: 0, length: caption.string.count))
+        
+        
+        
+        ingredientsLabel.attributedText = ingredients
+        captionLabel.attributedText = caption
         if State.bold == true {
             ingredientsLabel.font = UIFont.boldSystemFont(ofSize: ingredientsLabel.font.pointSize)
             captionLabel.font = UIFont.boldSystemFont(ofSize: captionLabel.font.pointSize)
@@ -63,10 +75,19 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
+        
+        //Nightmode
+        self.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+
     }
     
     func setupUserInfo() {
-        nameLabel.text = user?.username
+        let name = NSMutableAttributedString(string: (user?.username)!)
+        name.setMixedAttributes([NNForegroundColorAttributeName:
+            MixedColor(normal: 0x000000, night: 0xfafafa)],
+                                range: NSRange(location: 0, length: name.string.count))
+        
+        nameLabel.attributedText = name
         if let photoUrlString = user?.profileImageUrl {
             if let photoUrl = URL(string: photoUrlString) {
                 let data = try? Data(contentsOf: photoUrl)

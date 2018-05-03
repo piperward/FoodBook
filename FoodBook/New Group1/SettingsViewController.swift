@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NightNight
 
 protocol SettingsViewControllerDelegate {
     func updateUserInfor()
@@ -76,8 +77,10 @@ class SettingsViewController: UIViewController {
     @IBAction func nightModeSwitchTapped(_ sender: Any) {
         if nightModeSwitch.isOn {
             State.nightMode = true
+            NightNight.theme = .night
         } else {
             State.nightMode = false
+            NightNight.theme = .normal
         }
     }
     

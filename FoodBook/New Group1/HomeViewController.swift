@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NightNight
 
 class HomeViewController: UIViewController {
 
@@ -23,7 +24,16 @@ class HomeViewController: UIViewController {
         //tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
+        tableView.allowsSelection = false
         loadPosts()
+        
+        //Nightmode
+        view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        tableView.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+        navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .default, night: .black)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
