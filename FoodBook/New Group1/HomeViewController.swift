@@ -13,7 +13,10 @@ import NightNight
 class HomeViewController: UIViewController {
 
     var postCellIdentifier = "postCellIdentifier"
+    
+    // Stores posts loaded in from database
     var posts = [Post]()
+    // Maintains list of users loaded in from database
     var users = [User]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,6 +44,8 @@ class HomeViewController: UIViewController {
     }
     
     func loadPosts() {
+        
+        // Load the current user's posts
         if let currentUser = Auth.auth().currentUser {
             Api.observeFeed(withId: currentUser.uid) { (post) in
                 guard let postUid = post.uid else {
@@ -51,8 +56,10 @@ class HomeViewController: UIViewController {
                     self.tableView.reloadData()
                 })
             }
-        
+            
+            // If the user deleted any of their own posts, update the table view to reflect that
             Api.observeFeedRemoved(withId: currentUser.uid) { (post) in
+                // These two lines removes posts and users from their respective arrays if there is a change
                 self.posts = self.posts.filter { $0.id != post.id }
                 self.users = self.users.filter { $0.id != post.uid }
                 
@@ -61,6 +68,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // Searches the database for a specific user and adds them to the array
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.observeUser(withId: uid, completion: {
             user in
@@ -91,6 +99,8 @@ extension HomeViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        
+        // Each cell has a post variable and a user variable that it uses to pull the correct data from the database
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
         cell.post = post
@@ -100,7 +110,6 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-//TODO create these segues
 extension HomeViewController: PostTableViewCellDelegate {
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "CommentSegue", sender: postId)

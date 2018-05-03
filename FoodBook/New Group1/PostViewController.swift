@@ -14,15 +14,21 @@ import NightNight
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, IngredientDelegate {
     
+    // Displays the list of ingredients
     @IBOutlet weak var recipeTableView: UITableView!
+    // Stores ingredients to be displayed and sent to the database
     var ingredients = [String]()
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextView: UITextView!
     
     var selectedImage:UIImage?
+    
+    // Used for quick access to the posts section of the database
     let ref = Database.database().reference(withPath: "posts")
     var currentUser = ""
+    
+    // Will store the complete formatted string that is saved to the database
     var ingredientDetails = ""
     
     private var imageSelected: Bool = false
@@ -43,6 +49,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Check to see if bold text has been enabled; if so, make sure the text is bolded;
+        // if not, make sure the text is normal
         if State.bold == true {
             postTextView.font = UIFont.boldSystemFont(ofSize: (postTextView.font?.pointSize)!)
         } else {
@@ -56,13 +64,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Dispose of any resources that can be recreated.
     }
     
-    // Delegate method
+    // Delegate method; receives the ingredient name and amount from IngredientViewController
     func getIngredientDetails(ingredientToReceive: String) {
         let newIngredient = ingredientToReceive
+        // Add the ingredient to the list of ingredients
         ingredients.append(newIngredient)
         
         self.recipeTableView.reloadData()
     }
+    
+    // UIImagePickerController methods to select an image for the post
     
     @IBAction func onPostImageViewTapped(_ sender: UITapGestureRecognizer) {
         //Hide keyboard
@@ -100,10 +111,14 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func onUploadButtonPressed(_ sender: Any) {
+        // Formatting the ingredientDetails string
         if ingredients.count == 0 {
             ingredientDetails = "No ingredients specified"
         } else {
+            // Clean up the string from the previous post
             ingredientDetails.removeAll()
+            
+            // Add each ingredient on a new line in the string
             for ingredient in ingredients {
                 ingredientDetails.append(ingredient + "\n")
             }
@@ -127,6 +142,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    // Store the image data into FirebaseStorage using the Storage reference URL
     func uploadImageToFirebaseStorage(data: Data, onSuccess: @escaping (_ imageUrl: String) -> Void) {
         let photoIdString = NSUUID().uuidString
         // Put image data in Firebase Storage
@@ -152,6 +168,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // Store post data in the following format
         let currentUserId = currentUser.uid
+        // User data is stored in a dictionary
         let dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio, "ingredients": ingredients] as [String : Any]
         newPostReference.setValue(dict, withCompletionBlock: {
             (error, ref) in
@@ -159,9 +176,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 print("senddatatodatabase error != nil")
                 return
             }
-        
+            
+            // Send the new data to the user's home feed
             Api.REF_FEED.child(Api.CURRENT_USER!.uid).child(newPostId).setValue(true)
 
+            // Add new data to current user's list of posts in database
             let myPostRef = Api.REF_MYPOSTS.child(currentUserId).child(newPostId)
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
@@ -222,6 +241,8 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath as IndexPath)
         let row = indexPath.row
         
+        // Check to see if bold text has been enabled; if so, make sure the text is bolded;
+        // if not, make sure the text is normal
         if State.bold == true {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
         } else {

@@ -11,9 +11,13 @@ import Firebase
 import NightNight
 
 class SearchViewController: UIViewController {
+    
+    // Database reference to the users section
     var REF_USERS = Database.database().reference().child("users")
 
     var searchBar = UISearchBar()
+    
+    // Stores users found in the database
     var users: [User] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,8 +33,6 @@ class SearchViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = searchItem
         
         self.tableView.dataSource = self
-        
-        self.searchBar.backgroundColor = UIColor.gray
         
         //Nightmode
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
@@ -53,6 +55,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // Searches the database for users with name that matches the searchbar text
     func queryUsers(withText text: String, completion: @escaping (User) -> Void) {
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: {
             snapshot in
@@ -76,6 +79,7 @@ class SearchViewController: UIViewController {
     }
 }
 
+// Handles keyboard dismissal when a search is performed
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -100,6 +104,8 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
+        
+        // Every cell has a user variable that it uses to pull the correct user's info from the database
         let user = users[indexPath.row]
         cell.user = user
         cell.delegate = self
@@ -114,6 +120,7 @@ extension SearchViewController: PeopleTableViewCellDelegate {
 }
 
 extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
+    // If the user is/is not following someone in the search results, make sure the follow button reflects that
     func updateFollowButton(forUser user: User) {
         for u in self.users {
             if u.id == user.id {

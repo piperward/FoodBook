@@ -8,6 +8,7 @@
 
 import Foundation
 class Comment {
+    // Properties to be pulled from the database and shown in the comment view controller
     var commentText: String?
     var uid: String?
 }
@@ -15,6 +16,8 @@ class Comment {
 extension Comment {
     static func transformComment(dict: [String: Any]) -> Comment {
         let comment = Comment()
+        
+        // Extract data by key
         comment.commentText = dict["commentText"] as? String
         comment.uid = dict["uid"] as? String
         return comment

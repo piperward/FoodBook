@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class Post {
+    
+    // Post information to be pulled form the database
     var caption: String?
     var photoUrl: String?
     var uid: String?
@@ -25,6 +27,8 @@ class Post {
 extension Post {
     static func transformPostPhoto(dict: [String: Any], key: String) -> Post {
         let post = Post()
+        
+        // Extract data by key
         post.id = key
         post.caption = dict["caption"] as? String
         post.photoUrl = dict["photoUrl"] as? String

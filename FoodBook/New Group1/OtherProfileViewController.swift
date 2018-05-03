@@ -13,6 +13,8 @@ class OtherProfileViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var user: User!
+    
+    // Maintain's all of the user's posts
     var posts: [Post] = []
     var userId = ""
     
@@ -23,6 +25,8 @@ class OtherProfileViewController: UIViewController {
         print("userId: \(userId)")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        // Fetch user information and their posts form the database
         fetchUser()
         fetchMyPosts()
         
@@ -35,6 +39,7 @@ class OtherProfileViewController: UIViewController {
         navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
     }
     
+    // Fetches the user's data from the database
     func fetchUser() {
         Api.observeUser(withId: userId) { (user) in
             self.isFollowing(userId: user.id!, completed: { (value) in
@@ -46,10 +51,12 @@ class OtherProfileViewController: UIViewController {
         }
     }
     
+    // Updates the follow button on the profile to reflect whether or not the current user is already following them
     func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
         Api.isFollowing(userId: userId, completed: completed)
     }
     
+    // Fetches all of the user's posts from the database
     func fetchMyPosts() {
         Api.fetchMyPosts(userId: userId) { (key) in
             Api.observePost(withId: key, completion: {
@@ -82,6 +89,8 @@ extension OtherProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+        
+        // Each cell has a post variable that it uses to pull the correct post information from the database
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
@@ -106,6 +115,7 @@ extension OtherProfileViewController: HeaderProfileCollectionReusableViewDelegat
     }
 }
 
+// Customizes the collection view layout
 extension OtherProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
